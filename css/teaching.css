@@ -1,0 +1,56 @@
+.teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+.course-card {
+  padding: var(--space-lg);
+}
+
+.course-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.course-card__role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--pill-radius);
+  background: rgba(102, 126, 234, 0.15);
+  color: #8ba4f0;
+  border: 1px solid rgba(102, 126, 234, 0.25);
+  flex-shrink: 0;
+}
+
+.course-card__year {
+  font-size: var(--fs-small);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  text-align: right;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.course-card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-xs);
+}
+
+.course-card__dept {
+  font-size: var(--fs-small);
+  color: var(--text-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.course-card__description {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

@@ -1,0 +1,81 @@
+/* Base glass card */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow), var(--glass-inner-glow);
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.glass:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover), var(--glass-inner-glow);
+}
+
+/* Interactive glass card (lifts on hover) */
+.glass--interactive:hover {
+  transform: translateY(-4px);
+}
+
+/* Stronger glass for navigation */
+.glass--nav {
+  background: rgba(10, 10, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Subtle glass for pills/tags */
+.glass--pill {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--pill-radius);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0.35rem 1rem;
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.glass--pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+}
+
+/* Glass card with colored left accent border (uses ::before to preserve border-radius) */
+.glass--accent-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass--accent-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--gradient-1), var(--gradient-2));
+  z-index: 1;
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass {
+    background: rgba(13, 27, 42, 0.92);
+  }
+  .glass--nav {
+    background: rgba(10, 10, 26, 0.95);
+  }
+}

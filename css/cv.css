@@ -1,0 +1,118 @@
+/* Download button */
+.cv-download-section {
+  padding-bottom: var(--space-lg);
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cv-download-btn:hover {
+  color: var(--text-primary);
+}
+
+/* CV content */
+.cv-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cv-section {
+  padding: var(--space-lg);
+  border-radius: var(--card-radius);
+}
+
+.cv-section__title {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+/* CV entries */
+.cv-entry {
+  margin-bottom: var(--space-md);
+}
+
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-entry__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.cv-entry__role {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.cv-entry__date {
+  font-size: var(--fs-small);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.cv-entry__org {
+  font-size: var(--fs-body);
+  color: var(--text-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.cv-entry__details {
+  padding-left: 1.2rem;
+}
+
+.cv-entry__details li {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+  position: relative;
+  list-style: none;
+}
+
+.cv-entry__details li::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gradient-1);
+}
+
+/* Skills */
+.cv-skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cv-skills__label {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+}
+
+.cv-skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}

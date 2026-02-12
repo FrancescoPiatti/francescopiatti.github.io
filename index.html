@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Francesco Piatti - PhD Student in Mathematics at Imperial College London & University of Oxford. Research in Neural SDEs, Rough Paths, and AI for Finance.">
+  <meta name="author" content="Francesco Piatti">
+  <meta property="og:title" content="Francesco Piatti - Academic Website">
+  <meta property="og:description" content="PhD Student in Mathematics at Imperial College London & University of Oxford">
+  <meta property="og:type" content="website">
+  <title>Francesco Piatti | Home</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav glass--nav" id="navbar">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo">FP</a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" class="nav__link" data-page="home">Home</a></li>
+        <li><a href="publications.html" class="nav__link" data-page="publications">Research</a></li>
+        <li><a href="cv.html" class="nav__link" data-page="cv">CV</a></li>
+        <li><a href="teaching.html" class="nav__link" data-page="teaching">Teaching</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+
+    <!-- Thematic background: dense quant finance / mathematics aesthetic -->
+    <div class="hero__bg" aria-hidden="true">
+
+      <!-- Financial chart grid lines -->
+      <div class="hero__grid"></div>
+
+      <!-- Canvas: particles + true Brownian motion paths (rendered via JS) -->
+      <canvas id="hero-canvas"></canvas>
+
+      <!-- Floating mathematical symbols -->
+      <div class="hero__symbols">
+        <span class="math-symbol math-symbol--1">dW<sub>t</sub></span>
+        <span class="math-symbol math-symbol--2">&part;</span>
+        <span class="math-symbol math-symbol--3">&sigma;</span>
+        <span class="math-symbol math-symbol--4">&int;</span>
+        <span class="math-symbol math-symbol--5">&Sigma;</span>
+        <span class="math-symbol math-symbol--6">E[X]</span>
+        <span class="math-symbol math-symbol--7">d&mu;</span>
+        <span class="math-symbol math-symbol--8">&nabla;</span>
+        <span class="math-symbol math-symbol--9">&lambda;</span>
+        <span class="math-symbol math-symbol--10">&theta;</span>
+        <span class="math-symbol math-symbol--11">&Omega;</span>
+        <span class="math-symbol math-symbol--12">&#x2119;</span>
+        <span class="math-symbol math-symbol--13">&#x211D;</span>
+        <span class="math-symbol math-symbol--14">&alpha;</span>
+        <span class="math-symbol math-symbol--15">&beta;</span>
+      </div>
+
+      <!-- Full SDE / finance / ML formulas -->
+      <div class="hero__formulas">
+        <span class="math-formula math-formula--1">dS = &mu;S dt + &sigma;S dW</span>
+        <span class="math-formula math-formula--2">&part;V/&part;t + &frac12;&sigma;&sup2;S&sup2;&part;&sup2;V/&part;S&sup2; = rV</span>
+        <span class="math-formula math-formula--3">E[e<sup>&minus;rT</sup>(S<sub>T</sub> &minus; K)<sup>+</sup>]</span>
+        <span class="math-formula math-formula--4">dX<sub>t</sub> = f(X<sub>t</sub>)dt + g(X<sub>t</sub>)dW<sub>t</sub></span>
+        <span class="math-formula math-formula--5">&int;<sub>0</sub><sup>T</sup> &sigma;<sub>s</sub> dW<sub>s</sub></span>
+        <span class="math-formula math-formula--6">P(S<sub>T</sub> &gt; K) = &Phi;(d<sub>2</sub>)</span>
+        <span class="math-formula math-formula--7">X<sub>n+1</sub> = X<sub>n</sub> + &mu;&Delta;t + &sigma;&Delta;W<sub>n</sub></span>
+        <span class="math-formula math-formula--8">v(t,x) = E[&phi;(X<sub>T</sub>) | X<sub>t</sub> = x]</span>
+        <span class="math-formula math-formula--9">&nabla;<sub>&theta;</sub>L = &minus;E[&nabla; log p<sub>&theta;</sub>]</span>
+        <span class="math-formula math-formula--10">softmax(z<sub>i</sub>) = e<sup>z<sub>i</sub></sup> / &Sigma;e<sup>z<sub>j</sub></sup></span>
+      </div>
+
+      <!-- Stock prices & financial numbers -->
+      <div class="hero__numbers">
+        <span class="stock-number stock-number--1">142.57</span>
+        <span class="stock-number stock-number--2 stock-number--up">+2.34%</span>
+        <span class="stock-number stock-number--3">0.9847</span>
+        <span class="stock-number stock-number--4 stock-number--down">&minus;1.12%</span>
+        <span class="stock-number stock-number--5">3,847.92</span>
+        <span class="stock-number stock-number--6 stock-number--up">+0.67%</span>
+        <span class="stock-number stock-number--7">98.23</span>
+        <span class="stock-number stock-number--8">1.0532</span>
+        <span class="stock-number stock-number--9 stock-number--up">+4.21%</span>
+        <span class="stock-number stock-number--10 stock-number--down">&minus;0.89%</span>
+        <span class="stock-number stock-number--11">Vol: 0.23</span>
+        <span class="stock-number stock-number--12 stock-number--up">+12bp</span>
+        <span class="stock-number stock-number--13">Yield: 4.31%</span>
+        <span class="stock-number stock-number--14 stock-number--down">&minus;2.67%</span>
+        <span class="stock-number stock-number--15">Sprd: 142</span>
+      </div>
+
+      <!-- Top ticker tape (scrolls left) -->
+      <div class="hero__ticker hero__ticker--top">
+        <div class="ticker__track">
+          <span class="ticker__item">AAPL 189.42 <em class="ticker__up">+1.23%</em></span>
+          <span class="ticker__item">MSFT 415.60 <em class="ticker__down">&minus;0.45%</em></span>
+          <span class="ticker__item">FTSE 8,247.31 <em class="ticker__up">+0.82%</em></span>
+          <span class="ticker__item">BTC 67,432.10 <em class="ticker__up">+3.14%</em></span>
+          <span class="ticker__item">EUR/USD 1.0847 <em class="ticker__down">&minus;0.21%</em></span>
+          <span class="ticker__item">10Y UST 4.312% <em class="ticker__up">+2bp</em></span>
+          <span class="ticker__item">SPX 5,321.08 <em class="ticker__up">+0.55%</em></span>
+          <span class="ticker__item">VIX 14.32 <em class="ticker__down">&minus;4.2%</em></span>
+          <span class="ticker__item">AAPL 189.42 <em class="ticker__up">+1.23%</em></span>
+          <span class="ticker__item">MSFT 415.60 <em class="ticker__down">&minus;0.45%</em></span>
+          <span class="ticker__item">FTSE 8,247.31 <em class="ticker__up">+0.82%</em></span>
+          <span class="ticker__item">BTC 67,432.10 <em class="ticker__up">+3.14%</em></span>
+          <span class="ticker__item">EUR/USD 1.0847 <em class="ticker__down">&minus;0.21%</em></span>
+          <span class="ticker__item">10Y UST 4.312% <em class="ticker__up">+2bp</em></span>
+          <span class="ticker__item">SPX 5,321.08 <em class="ticker__up">+0.55%</em></span>
+          <span class="ticker__item">VIX 14.32 <em class="ticker__down">&minus;4.2%</em></span>
+        </div>
+      </div>
+
+      <!-- Bottom ticker tape (scrolls right) -->
+      <div class="hero__ticker hero__ticker--bottom">
+        <div class="ticker__track ticker__track--reverse">
+          <span class="ticker__item">NVDA 892.14 <em class="ticker__up">+2.87%</em></span>
+          <span class="ticker__item">TSLA 241.30 <em class="ticker__down">&minus;1.53%</em></span>
+          <span class="ticker__item">DAX 18,421.50 <em class="ticker__up">+0.41%</em></span>
+          <span class="ticker__item">ETH 3,847.21 <em class="ticker__up">+1.92%</em></span>
+          <span class="ticker__item">GBP/USD 1.2734 <em class="ticker__up">+0.18%</em></span>
+          <span class="ticker__item">Gold 2,341.80 <em class="ticker__up">+0.73%</em></span>
+          <span class="ticker__item">Crude 78.42 <em class="ticker__down">&minus;0.94%</em></span>
+          <span class="ticker__item">AMZN 187.92 <em class="ticker__up">+1.15%</em></span>
+          <span class="ticker__item">NVDA 892.14 <em class="ticker__up">+2.87%</em></span>
+          <span class="ticker__item">TSLA 241.30 <em class="ticker__down">&minus;1.53%</em></span>
+          <span class="ticker__item">DAX 18,421.50 <em class="ticker__up">+0.41%</em></span>
+          <span class="ticker__item">ETH 3,847.21 <em class="ticker__up">+1.92%</em></span>
+          <span class="ticker__item">GBP/USD 1.2734 <em class="ticker__up">+0.18%</em></span>
+          <span class="ticker__item">Gold 2,341.80 <em class="ticker__up">+0.73%</em></span>
+          <span class="ticker__item">Crude 78.42 <em class="ticker__down">&minus;0.94%</em></span>
+          <span class="ticker__item">AMZN 187.92 <em class="ticker__up">+1.15%</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__card glass">
+      <h1 class="hero__name">Francesco Piatti</h1>
+      <div class="hero__accent"></div>
+      <p class="hero__subtitle">PhD Student in Mathematics</p>
+      <p class="hero__affiliation">Imperial College London &amp; University of Oxford</p>
+
+      <div class="hero__socials">
+        <!-- GitHub -->
+        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <!-- Google Scholar -->
+        <a href="https://scholar.google.com/citations?user=kGBj96kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+          </svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:francesco.piatti19@imperial.ac.uk" class="social-icon" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT / RESEARCH INTERESTS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="about glass reveal" style="padding: var(--space-lg);">
+        <h2>About Me</h2>
+        <p>
+          I am a PhD student in the Centre for Doctoral Training (CDT) in Mathematics of Random Systems,
+          a joint programme between Imperial College London and the University of Oxford, funded by an EPSRC studentship.
+          I am supervised by Prof. Thomas Cass (Professor of Mathematical Finance).
+        </p>
+        <p>
+          My research lies at the intersection of stochastic analysis and machine learning models for sequential data.
+          I am particulalry interested in neural stochastic/controlled differential equations and state space models.
+          Previously, I completed my MSci in Mathematics at Imperial College London with First Class Honours.
+        </p>
+
+        <!-- ========== RESEARCH INTERESTS: Edit these tags ========== -->
+        <div class="research-tags reveal-stagger" style="margin-top: var(--space-md);">
+          <span class="glass--pill">Neural SDEs</span>
+          <span class="glass--pill">State Space Models</span>
+          <span class="glass--pill">Rough Paths &amp; Signatures</span>
+          <span class="glass--pill">AI for Finance</span>
+          <span class="glass--pill">Algorithmic Trading</span>
+          <span class="glass--pill">Mathematical Finance</span>
+        </div>
+        <!-- ========== END RESEARCH INTERESTS ========== -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__socials">
+        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="mailto:francesco.piatti19@imperial.ac.uk" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__text">&copy; 2026 Francesco Piatti. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

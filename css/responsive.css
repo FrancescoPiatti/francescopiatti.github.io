@@ -1,0 +1,127 @@
+/* ========== Mobile (< 768px) ========== */
+@media (max-width: 767px) {
+
+  /* Navigation: mobile slide-in menu */
+  .nav__links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(10, 10, 26, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    gap: var(--space-lg);
+    z-index: 999;
+  }
+
+  .nav__links--open {
+    transform: translateX(0);
+  }
+
+  .nav__link {
+    font-size: 1.3rem;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  /* Prevent scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Hero */
+  .hero__card {
+    padding: var(--space-lg) var(--space-md);
+    margin: 0 var(--space-xs);
+  }
+
+  /* Sections */
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  /* Page header */
+  .page-header {
+    min-height: 20vh;
+    padding-top: calc(var(--nav-height) + var(--space-lg));
+    padding-bottom: var(--space-lg);
+  }
+
+  /* Publication cards */
+  .publication-card {
+    padding: var(--space-md);
+  }
+
+  .publication-card__header {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Project grid */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Teaching grid */
+  .teaching-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CV entries */
+  .cv-entry__header {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .cv-section {
+    padding: var(--space-md);
+  }
+
+  /* CV accent border: move to top on mobile */
+  .glass--accent-left::before {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+  }
+
+  /* About */
+  .about {
+    padding: var(--space-md) !important;
+  }
+}
+
+/* ========== Tablet (768px - 1023px) ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teaching-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== Desktop (1024px+) ========== */
+@media (min-width: 1024px) {
+
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .teaching-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}

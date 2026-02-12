@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Francesco Piatti - Curriculum Vitae">
+  <meta name="author" content="Francesco Piatti">
+  <title>Francesco Piatti | CV</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cv.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav glass--nav" id="navbar">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo">FP</a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" class="nav__link" data-page="home">Home</a></li>
+        <li><a href="publications.html" class="nav__link" data-page="publications">Research</a></li>
+        <li><a href="cv.html" class="nav__link" data-page="cv">CV</a></li>
+        <li><a href="teaching.html" class="nav__link" data-page="teaching">Teaching</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <header class="page-header">
+    <div>
+      <h1 class="page-header__title">Curriculum Vitae</h1>
+      <p class="page-header__subtitle">Education, experience, and skills</p>
+    </div>
+  </header>
+
+  <!-- ========== DOWNLOAD BUTTON ========== -->
+  <section class="cv-download-section">
+    <div class="container" style="text-align: center;">
+      <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="cv-download-btn glass glass--interactive">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download CV (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== CV CONTENT ========== -->
+  <section class="section">
+    <div class="container cv-content">
+
+      <!-- EDUCATION -->
+      <div class="cv-section glass glass--accent-left reveal">
+        <h2 class="cv-section__title">Education</h2>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">PhD, Mathematics</h3>
+            <span class="cv-entry__date">Sept 2023 &ndash; Present</span>
+          </div>
+          <p class="cv-entry__org">Imperial College London &ndash; University of Oxford</p>
+          <ul class="cv-entry__details">
+            <li>EPSRC studentship in the Centre for Doctoral Training (CDT) in Mathematics of Random Systems</li>
+            <li>Supervised by Prof. Thomas Cass (Professor of Mathematical Finance)</li>
+            <li>Research: Neural SDEs, State Space Models, Rough Paths and Signatures, AI for Finance</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">MSci, Mathematics</h3>
+            <span class="cv-entry__date">Sept 2019 &ndash; June 2023</span>
+          </div>
+          <p class="cv-entry__org">Imperial College London</p>
+          <ul class="cv-entry__details">
+            <li>Graduated with First Class Honours; Dean's List (fourth year)</li>
+            <li>Thesis: "Deep Hedging with Signatures and Neural Rough Differential Equations" &ndash; achieved First Class</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">Italian Scientific High School Diploma</h3>
+            <span class="cv-entry__date">Sept 2014 &ndash; July 2019</span>
+          </div>
+          <p class="cv-entry__org">Liceo Scientifico Filippo Lussana, Bergamo, Italy</p>
+          <ul class="cv-entry__details">
+            <li>Graduated with 100/100</li>
+            <li>SAT Subject Test &ndash; Math Level 1: 800/800; Math Level 2: 800/800</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="cv-section glass glass--accent-left reveal">
+        <h2 class="cv-section__title">Work Experience</h2>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">Spring Intern</h3>
+            <span class="cv-entry__date">April 2025</span>
+          </div>
+          <p class="cv-entry__org">G-Research, London, UK</p>
+          <ul class="cv-entry__details">
+            <li>Participated in advanced workshops on Mathematics, Statistics, Quantitative Finance, and Algorithmic Trading</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">Student Researcher</h3>
+            <span class="cv-entry__date">July 2022 &ndash; Sept 2022</span>
+          </div>
+          <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
+          <ul class="cv-entry__details">
+            <li>US recession forecasting using ML techniques: RNNs, random forests, and SVM with signature, RBF and GAK kernels</li>
+            <li>Improved accuracy of state-of-art models</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">Student Researcher</h3>
+            <span class="cv-entry__date">July 2021 &ndash; Sept 2021</span>
+          </div>
+          <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
+          <ul class="cv-entry__details">
+            <li>Developed a novel method leveraging signatures to estimate correlation of multivariate time series with non-synchronous observations</li>
+            <li>Designed and implemented statistical tests and simulation pipelines in a team</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry__header">
+            <h3 class="cv-entry__role">Summer Intern</h3>
+            <span class="cv-entry__date">June 2020 &ndash; July 2020</span>
+          </div>
+          <p class="cv-entry__org">Studio Conca Jannone Maffeis, Bergamo, Italy</p>
+          <ul class="cv-entry__details">
+            <li>Financial analysis and development of Python-based software to automate analysis of financial statements</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="cv-section glass glass--accent-left reveal">
+        <h2 class="cv-section__title">Skills</h2>
+
+        <div class="cv-skills">
+          <div class="cv-skills__group">
+            <h4 class="cv-skills__label">Programming</h4>
+            <div class="cv-skills__tags">
+              <span class="glass--pill">Python</span>
+              <span class="glass--pill">PyTorch</span>
+              <span class="glass--pill">JAX</span>
+              <span class="glass--pill">pandas</span>
+              <span class="glass--pill">R</span>
+              <!--span class="glass--pill">SQL</span> -->
+              <span class="glass--pill">HPC (CPU/GPU)</span>
+              <span class="glass--pill">LaTeX</span>
+            </div>
+          </div>
+          <div class="cv-skills__group">
+            <h4 class="cv-skills__label">Languages</h4>
+            <div class="cv-skills__tags">
+              <span class="glass--pill">Italian (native)</span>
+              <span class="glass--pill">English (fluent)</span>
+              <span class="glass--pill">Spanish (intermediate)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POSITIONS OF RESPONSIBILITY -->
+      <div class="cv-section glass glass--accent-left reveal">
+        <h2 class="cv-section__title">Positions of Responsibility</h2>
+        <div class="cv-entry">
+          <ul class="cv-entry__details">
+            <li>Member of board of directors and board of executives of <a href="https://uniteditaliansocieties.com" target="_blank" rel="noopener noreferrer">United Italian Societies Ltd</a> (June 2021 &ndash; June 2023)</li>
+            <li>President of Imperial College Italian Society (June 2021 &ndash; June 2023)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__socials">
+        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="mailto:francesco.piatti19@imperial.ac.uk" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__text">&copy; 2026 Francesco Piatti. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
