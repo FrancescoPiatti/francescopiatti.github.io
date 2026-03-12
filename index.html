@@ -8,7 +8,7 @@
   <meta property="og:title" content="Francesco Piatti - Academic Website">
   <meta property="og:description" content="PhD Student in Mathematics at Imperial College London & University of Oxford">
   <meta property="og:type" content="website">
-  <title>Francesco Piatti | Home</title>
+  <title>Francesco Piatti | Academic Website</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/publications.css">
+  <link rel="stylesheet" href="css/cv.css">
+  <link rel="stylesheet" href="css/teaching.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -30,12 +33,12 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav glass--nav" id="navbar">
     <div class="nav__container">
-      <a href="index.html" class="nav__logo">FP</a>
+      <a href="#home" class="nav__logo">FP</a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="index.html" class="nav__link" data-page="home">Home</a></li>
-        <li><a href="publications.html" class="nav__link" data-page="publications">Research</a></li>
-        <li><a href="cv.html" class="nav__link" data-page="cv">CV</a></li>
-        <li><a href="teaching.html" class="nav__link" data-page="teaching">Teaching</a></li>
+        <li><a href="#home" class="nav__link" data-section="home">Home</a></li>
+        <li><a href="#research" class="nav__link" data-section="research">Research</a></li>
+        <li><a href="#cv" class="nav__link" data-section="cv">CV</a></li>
+        <li><a href="#teaching" class="nav__link" data-section="teaching">Teaching</a></li>
       </ul>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
         <span></span>
@@ -46,7 +49,7 @@
   </nav>
 
   <!-- ========== HERO SECTION ========== -->
-  <section class="hero">
+  <section class="hero" id="home">
 
     <!-- Thematic background: dense quant finance / mathematics aesthetic -->
     <div class="hero__bg" aria-hidden="true">
@@ -219,6 +222,420 @@
         </div>
         <!-- ========== END RESEARCH INTERESTS ========== -->
       </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== RESEARCH / PUBLICATIONS ========== -->
+  <section class="section" id="research">
+    <div class="container">
+      <h2 class="section__title reveal">Publications &amp; Pre-Prints</h2>
+
+      <div class="publication-list">
+
+        <!-- PUBLICATION ITEM -->
+        <article class="publication-card glass glass--interactive reveal">
+          <div class="publication-card__header">
+            <span class="publication-card__status publication-card__status--published">ICLR 2026</span>
+          </div>
+          <h3 class="publication-card__title">Random Controlled Differential Equations</h3>
+          <p class="publication-card__authors">
+            <strong>Piatti, F.</strong>, Cass, T., &amp; Turner, W. (2026)
+          </p>
+          <p class="publication-card__venue">Accepted for publication at ICLR 2026</p>
+          <button class="abstract-toggle glass--pill">Show Abstract</button>
+          <div class="abstract-content">
+            <p> We introduce a training-efficient framework for time-series learning that combines random features with controlled differential equations (CDEs).
+            In this approach, large randomly parameterized CDEs act as continuous-time reservoirs, mapping input paths to rich representations.
+            Only a linear readout layer is trained, resulting in fast, scalable models with strong inductive bias.
+            Building on this foundation, we propose two variants:
+            (i) Random Fourier CDEs (RF-CDEs): these lift the input signal using random Fourier features prior to the dynamics, providing a kernel-free approximation of RBF-enhanced sequence models;
+            (ii) Random Rough DEs (R-RDEs): these operate directly on rough-path inputs via a log-ODE discretization, using log-signatures to capture higher-order temporal interactions while remaining stable and efficient.
+            We prove that in the infinite-width limit, these model induces the RBF-lifted signature kernel and the rough signature kernel,
+            respectively, offering a unified perspective on random-feature reservoirs, continuous-time deep architectures, and path-signature theory.
+            We evaluate both models across a range of time-series benchmarks, demonstrating competitive or state-of-the-art performance.
+            These methods provide a practical alternative to explicit signature computations, retaining their inductive bias while benefiting from the efficiency of random features.</p>
+          </div>
+          <div class="publication-card__links">
+            <a href="assets/docs/RCDE.pdf" download="Random_Controlled_Differential_Equations.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/abs/2512.23670" class="glass--pill">arXiv</a>
+          </div>
+        </article>
+        <!-- END PUBLICATION ITEM -->
+
+        <!-- PUBLICATION ITEM -->
+        <article class="publication-card glass glass--interactive reveal">
+          <div class="publication-card__header">
+            <span class="publication-card__status publication-card__status--published">SIAM Journal on Numerical Analysis</span>
+          </div>
+          <h3 class="publication-card__title">Numerical Schemes for Signature Kernels</h3>
+          <p class="publication-card__authors">
+            Cass, T., <strong>Piatti, F.</strong>, &amp; Pei, J. (2025)
+          </p>
+          <p class="publication-card__venue">SIAM Journal on Numerical Analysis, 63(6), pp.2371-2394</p>
+          <button class="abstract-toggle glass--pill">Show Abstract</button>
+          <div class="abstract-content">
+          <p>Signature kernels have become a powerful tool in kernel methods for sequential data. In <a href="https://arxiv.org/abs/2006.14794">
+            The Signature Kernel is the solution of a Goursat PDE</a>, the authors introduce a kernel trick showing that, for
+              continuously differentiable paths, the signature kernel satisfies a hyperbolic PDE of Goursat type in two independent time variables.
+              While finite difference methods have been explored for this PDE, they suffer from accuracy and stability issues when handling highly oscillatory inputs.
+              In this work, we propose two advanced numerical schemes that approximate the solution using polynomial representations of boundary conditions,
+              employing either approximation or interpolation techniques. We prove the convergence of the polynomial approximation scheme and demonstrate
+              experimentally that both methods achieve several orders of magnitude improvement in mean absolute percentage error (MAPE) over
+              finite difference schemes, without increasing computational complexity.
+          </div>
+          <div class="publication-card__links">
+            <a href="assets/docs/NSSK.pdf" download="Numerical_Schemes_for_Signature_Kernels.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/abs/2502.08470" class="glass--pill">arXiv</a>
+            <a href="https://github.com/FrancescoPiatti/polysigkernel" class="glass--pill">Code</a>
+          </div>
+        </article>
+        <!-- END PUBLICATION ITEM -->
+
+        <!-- PUBLICATION ITEM -->
+        <article class="publication-card glass glass--interactive reveal">
+          <div class="publication-card__header">
+            <span class="publication-card__status publication-card__status--published">ICML 2024</span>
+          </div>
+          <h3 class="publication-card__title">Partially Stochastic Infinitely Deep Bayesian Neural Networks</h3>
+          <p class="publication-card__authors">
+            Calvo-Ordonez, S.*, Meunier, M.*, <strong>Piatti, F.*</strong>, &amp; Shi, Y.* (2024)
+            <span class="publication-card__note">*Equal contributions</span>
+          </p>
+          <p class="publication-card__venue">International Conference on Machine Learning, pp. 5436-5452, PMLR</p>
+          <button class="abstract-toggle glass--pill">Show Abstract</button>
+          <div class="abstract-content">
+            <p>In this paper, we present Partially Stochastic Infinitely Deep Bayesian Neural Networks, a
+              novel family of architectures that integrates partial stochasticity into the framework of infinitely
+              deep neural networks. Our new class of architectures is designed to improve the computational
+              efficiency of existing architectures at training and inference time. To do this, we leverage the advantages of partial
+              stochasticity in the infinitedepth limit which include the benefits of full stochasticity e.g. robustness, uncertainty quantification,
+              and memory efficiency, whilst improving their limitations around computational complexity. We present a variety of architectural
+              configurations, offering flexibility in network design including different methods for weight partition. We also provide mathematical
+              guarantees on the expressivity of our models by establishing that our network family qualifies as
+              Universal Conditional Distribution Approximators. Lastly, empirical evaluations across multiple tasks show that our proposed architectures
+              achieve better downstream task performance and uncertainty quantification than their counterparts
+              while being significantly more efficient.
+          </div>
+          <div class="publication-card__links">
+            <a href="assets/docs/PSIDBNN.pdf" download="Partially_Stochastic_Infinitely_Deep_Bayesian_Neural_Networks.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/pdf/2402.03495" class="glass--pill">arXiv</a>
+            <a href="https://github.com/Sergio20f/part_stoch_inf_deep" class="glass--pill">Code</a>
+          </div>
+        </article>
+        <!-- END PUBLICATION ITEM -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORKING PAPERS ========== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title reveal">Working Papers</h2>
+
+      <div class="project-grid">
+
+        <!-- PROJECT ITEM -->
+        <article class="project-card glass glass--interactive reveal">
+          <div class="project-card__status">
+            <span class="status-dot status-dot--progress"></span>
+            In Progress
+          </div>
+          <h3 class="project-card__title">Deep Calibration of Interest Rate Models with Neural SDEs</h3>
+          <p class="project-card__description">
+            Joint with Prof. Brigo and Dr. Ferrucci.
+          </p>
+          <div class="project-card__tags">
+            <span class="glass--pill">Neural SDEs</span>
+            <span class="glass--pill">Interest Rates</span>
+            <span class="glass--pill">Calibration</span>
+          </div>
+        </article>
+        <!-- END PROJECT ITEM -->
+
+        <!-- PROJECT ITEM -->
+        <article class="project-card glass glass--interactive reveal">
+          <div class="project-card__status">
+            <span class="status-dot status-dot--progress"></span>
+            In Progress
+          </div>
+          <h3 class="project-card__title">Structured Linear NSDEs</h3>
+          <p class="project-card__description">
+            Joint with Prof. Cass.
+          </p>
+          <div class="project-card__tags">
+            <span class="glass--pill">Neural SDEs</span>
+            <span class="glass--pill">State Space Models</span>
+          </div>
+        </article>
+        <!-- END PROJECT ITEM -->
+
+        <!-- PROJECT ITEM -->
+        <article class="project-card glass glass--interactive reveal">
+          <div class="project-card__status">
+            <span class="status-dot status-dot--progress"></span>
+            In Progress
+          </div>
+          <h3 class="project-card__title">Multi-Level Monte-Carlo for Expected Signatures</h3>
+          <p class="project-card__description">
+            Joint with Prof. Cass.
+          </p>
+          <div class="project-card__tags">
+            <span class="glass--pill">Monte Carlo</span>
+            <span class="glass--pill">Signatures</span>
+          </div>
+        </article>
+        <!-- END PROJECT ITEM -->
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== CV ========== -->
+  <section class="section" id="cv">
+    <div class="container">
+      <h2 class="section__title reveal">Curriculum Vitae</h2>
+
+      <!-- Download button -->
+      <div style="margin-bottom: var(--space-md);">
+        <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="cv-download-btn glass glass--interactive">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV (PDF)
+        </a>
+      </div>
+
+      <div class="cv-content">
+
+        <!-- EDUCATION -->
+        <div class="cv-section glass glass--accent-left reveal">
+          <h2 class="cv-section__title">Education</h2>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">PhD, Mathematics</h3>
+              <span class="cv-entry__date">Sept 2023 &ndash; Present</span>
+            </div>
+            <p class="cv-entry__org">Imperial College London &ndash; University of Oxford</p>
+            <ul class="cv-entry__details">
+              <li>EPSRC studentship in the Centre for Doctoral Training (CDT) in Mathematics of Random Systems</li>
+              <li>Supervised by Prof. Thomas Cass (Professor of Mathematical Finance)</li>
+              <li>Research: Neural SDEs, State Space Models, Rough Paths and Signatures, AI for Finance</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">MSci, Mathematics</h3>
+              <span class="cv-entry__date">Sept 2019 &ndash; June 2023</span>
+            </div>
+            <p class="cv-entry__org">Imperial College London</p>
+            <ul class="cv-entry__details">
+              <li>Graduated with First Class Honours; Dean's List (fourth year)</li>
+              <li>Thesis: "Deep Hedging with Signatures and Neural Rough Differential Equations" &ndash; achieved First Class</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">Italian Scientific High School Diploma</h3>
+              <span class="cv-entry__date">Sept 2014 &ndash; July 2019</span>
+            </div>
+            <p class="cv-entry__org">Liceo Scientifico Filippo Lussana, Bergamo, Italy</p>
+            <ul class="cv-entry__details">
+              <li>Graduated with 100/100</li>
+              <li>SAT Subject Test &ndash; Math Level 1: 800/800; Math Level 2: 800/800</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- WORK EXPERIENCE -->
+        <div class="cv-section glass glass--accent-left reveal">
+          <h2 class="cv-section__title">Work Experience</h2>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">Spring Intern</h3>
+              <span class="cv-entry__date">April 2025</span>
+            </div>
+            <p class="cv-entry__org">G-Research, London, UK</p>
+            <ul class="cv-entry__details">
+              <li>Participated in advanced workshops on Mathematics, Statistics, Quantitative Finance, and Algorithmic Trading</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">Student Researcher</h3>
+              <span class="cv-entry__date">July 2022 &ndash; Sept 2022</span>
+            </div>
+            <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
+            <ul class="cv-entry__details">
+              <li>US recession forecasting using ML techniques: RNNs, random forests, and SVM with signature, RBF and GAK kernels</li>
+              <li>Improved accuracy of state-of-art models</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">Student Researcher</h3>
+              <span class="cv-entry__date">July 2021 &ndash; Sept 2021</span>
+            </div>
+            <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
+            <ul class="cv-entry__details">
+              <li>Developed a novel method leveraging signatures to estimate correlation of multivariate time series with non-synchronous observations</li>
+              <li>Designed and implemented statistical tests and simulation pipelines in a team</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__header">
+              <h3 class="cv-entry__role">Summer Intern</h3>
+              <span class="cv-entry__date">June 2020 &ndash; July 2020</span>
+            </div>
+            <p class="cv-entry__org">Studio Conca Jannone Maffeis, Bergamo, Italy</p>
+            <ul class="cv-entry__details">
+              <li>Financial analysis and development of Python-based software to automate analysis of financial statements</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="cv-section glass glass--accent-left reveal">
+          <h2 class="cv-section__title">Skills</h2>
+
+          <div class="cv-skills">
+            <div class="cv-skills__group">
+              <h4 class="cv-skills__label">Programming</h4>
+              <div class="cv-skills__tags">
+                <span class="glass--pill">Python</span>
+                <span class="glass--pill">PyTorch</span>
+                <span class="glass--pill">JAX</span>
+                <span class="glass--pill">pandas</span>
+                <span class="glass--pill">R</span>
+                <span class="glass--pill">HPC (CPU/GPU)</span>
+                <span class="glass--pill">LaTeX</span>
+              </div>
+            </div>
+            <div class="cv-skills__group">
+              <h4 class="cv-skills__label">Languages</h4>
+              <div class="cv-skills__tags">
+                <span class="glass--pill">Italian (native)</span>
+                <span class="glass--pill">English (fluent)</span>
+                <span class="glass--pill">Spanish (intermediate)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- POSITIONS OF RESPONSIBILITY -->
+        <div class="cv-section glass glass--accent-left reveal">
+          <h2 class="cv-section__title">Positions of Responsibility</h2>
+          <div class="cv-entry">
+            <ul class="cv-entry__details">
+              <li>Member of board of directors and board of executives of <a href="https://uniteditaliansocieties.com" target="_blank" rel="noopener noreferrer">United Italian Societies Ltd</a> (June 2021 &ndash; June 2023)</li>
+              <li>President of Imperial College Italian Society (June 2021 &ndash; June 2023)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== TEACHING ========== -->
+  <section class="section" id="teaching">
+    <div class="container">
+      <h2 class="section__title reveal">Teaching</h2>
+
+      <div class="teaching-grid">
+
+        <!-- COURSE ITEM -->
+        <article class="course-card glass glass--interactive reveal">
+          <div class="course-card__header">
+            <span class="course-card__role">Teaching Assistant</span>
+            <span class="course-card__year">2025 &amp; 2026</span>
+          </div>
+          <h3 class="course-card__title">Interest Rate Models</h3>
+          <p class="course-card__dept">Department of Mathematics, Imperial College London</p>
+          <p class="course-card__description">
+            Graduate-level course covering the mathematical foundations of interest rate modelling,
+            including short rate models, the HJM framework, LIBOR market models, and an introduction to XVA.
+          </p>
+        </article>
+        <!-- END COURSE ITEM -->
+
+        <!-- COURSE ITEM -->
+        <article class="course-card glass glass--interactive reveal">
+          <div class="course-card__header">
+            <span class="course-card__role">Teaching Assistant</span>
+            <span class="course-card__year">2025</span>
+          </div>
+          <h3 class="course-card__title">Statistics for Finance</h3>
+          <p class="course-card__dept">Department of Mathematics, Imperial College London</p>
+          <p class="course-card__description">
+            Graduate-level course covering statistical theory, methods and applications to finance,
+            including time series models, hypothesis testing, and regression.
+          </p>
+        </article>
+        <!-- END COURSE ITEM -->
+
+        <!-- COURSE ITEM -->
+        <article class="course-card glass glass--interactive reveal">
+          <div class="course-card__header">
+            <span class="course-card__role">Teaching Assistant</span>
+            <span class="course-card__year">2025</span>
+          </div>
+          <h3 class="course-card__title">Applied Trading Strategies</h3>
+          <p class="course-card__dept">Imperial College Business School</p>
+          <p class="course-card__description">
+            Practical course on qualitative and quantitaive trading strategies, covering diverse asset classes,
+            backtesting strategies, and portfolio construction.
+          </p>
+        </article>
+        <!-- END COURSE ITEM -->
+
+        <!-- COURSE ITEM -->
+        <article class="course-card glass glass--interactive reveal">
+          <div class="course-card__header">
+            <span class="course-card__role">Teaching Assistant</span>
+            <span class="course-card__year">2023 &amp; 2024</span>
+          </div>
+          <h3 class="course-card__title">Probability for Statistics</h3>
+          <p class="course-card__dept">Department of Mathematics, Imperial College London</p>
+          <p class="course-card__description">
+            Undergraduate course covering probability theory foundations: measure theory,
+            random variables, convergence, and conditional expectation.
+          </p>
+        </article>
+        <!-- END COURSE ITEM -->
+
+        <!-- COURSE ITEM -->
+        <article class="course-card glass glass--interactive reveal">
+          <div class="course-card__header">
+            <span class="course-card__role">Teaching Assistant</span>
+            <span class="course-card__year">2024</span>
+          </div>
+          <h3 class="course-card__title">Mathematics for Machine Learning</h3>
+          <p class="course-card__dept">Department of Mathematics, Imperial College London</p>
+          <p class="course-card__description">
+            Course covering the essential mathematical tools for machine learning: linear algebra,
+            multivariate calculus, probability, and optimisation.
+          </p>
+        </article>
+        <!-- END COURSE ITEM -->
+
+      </div>
+
     </div>
   </section>
 

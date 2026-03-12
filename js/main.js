@@ -1,36 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ========== Active Page Highlighting ==========
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const pageMap = {
-    'index.html': 'home',
-    '': 'home',
-    'publications.html': 'publications',
-    'cv.html': 'cv',
-    'teaching.html': 'teaching'
-  };
-  const activePage = pageMap[currentPage];
-  document.querySelectorAll('.nav__link').forEach(link => {
-    if (link.dataset.page === activePage) {
-      link.classList.add('nav__link--active');
-    }
+  // ========== Scroll-Spy Navigation ==========
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__link[data-section]');
+
+  function setActiveNav(sectionId) {
+    navLinks.forEach(link => {
+      if (link.dataset.section === sectionId) {
+        link.classList.add('nav__link--active');
+      } else {
+        link.classList.remove('nav__link--active');
+      }
+    });
+  }
+
+  // Set "Home" as active by default
+  setActiveNav('home');
+
+  const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.id);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '-70px 0px -50% 0px'
+  });
+
+  sections.forEach(section => {
+    scrollSpyObserver.observe(section);
   });
 
   // ========== Mobile Menu Toggle ==========
   const toggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
+  const navLinksList = document.getElementById('nav-links');
 
-  if (toggle && navLinks) {
+  if (toggle && navLinksList) {
     toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('nav__links--open');
+      navLinksList.classList.toggle('nav__links--open');
       toggle.classList.toggle('nav__toggle--active');
       document.body.classList.toggle('menu-open');
     });
 
     // Close menu when clicking a link
-    navLinks.querySelectorAll('.nav__link').forEach(link => {
+    navLinksList.querySelectorAll('.nav__link').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('nav__links--open');
+        navLinksList.classList.remove('nav__links--open');
         toggle.classList.remove('nav__toggle--active');
         document.body.classList.remove('menu-open');
       });
@@ -60,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ========== Abstract Toggle (Publications Page) ==========
+  // ========== Abstract Toggle ==========
   document.querySelectorAll('.abstract-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
       const abstract = btn.nextElementSibling;
@@ -73,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ========== Hero Canvas: Particles + Brownian Motion (Home Page Only) ==========
+  // ========== Hero Canvas: Particles + Brownian Motion ==========
   const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return; // Not on home page
+  if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
   let W, H;
@@ -102,10 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  //  PARTICLES
+  //  PARTICLES (blue/cyan palette)
   // ==========================================
-  const PARTICLE_COUNT = 90;
-  const CONNECTION_DIST = 130;
+  const PARTICLE_COUNT = 160;
+  const CONNECTION_DIST = 140;
   const particles = [];
 
   for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -116,9 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
       alpha: 0.15 + Math.random() * 0.20,    // opacity 0.15-0.35
       vx: (Math.random() - 0.5) * 0.3,       // slow base drift
       vy: (Math.random() - 0.5) * 0.3,
-      // green hue variation
-      g: 180 + Math.floor(Math.random() * 40),  // green channel 180-220
-      b: 120 + Math.floor(Math.random() * 40),  // blue channel 120-160
+      // blue/cyan hue variation
+      cr: 20 + Math.floor(Math.random() * 40),   // red channel 20-60
+      cg: 140 + Math.floor(Math.random() * 40),  // green channel 140-180
+      cb: 200 + Math.floor(Math.random() * 40),  // blue channel 200-240
     });
   }
 
@@ -154,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = 'rgba(52, 211, 153, ' + opacity + ')';
+          ctx.strokeStyle = 'rgba(20, 157, 221, ' + opacity + ')';
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -167,12 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Glow
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(52, ' + p.g + ', ' + p.b + ', ' + (p.alpha * 0.15) + ')';
+      ctx.fillStyle = 'rgba(' + p.cr + ', ' + p.cg + ', ' + p.cb + ', ' + (p.alpha * 0.15) + ')';
       ctx.fill();
       // Core dot
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(52, ' + p.g + ', ' + p.b + ', ' + p.alpha + ')';
+      ctx.fillStyle = 'rgba(' + p.cr + ', ' + p.cg + ', ' + p.cb + ', ' + p.alpha + ')';
       ctx.fill();
     }
   }
@@ -181,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //  BROWNIAN MOTION PATHS (Geometric BM)
   // ==========================================
   const BM_PATHS = [
-    { color: 'rgba(52, 211, 153, 0.40)', width: 2.5, mu: 0.0002, sigma: 0.012, startY: 0.55 },
-    { color: 'rgba(16, 185, 129, 0.30)', width: 2, mu: -0.0001, sigma: 0.015, startY: 0.35 },
+    { color: 'rgba(20, 157, 221, 0.40)', width: 2.5, mu: 0.0002, sigma: 0.012, startY: 0.55 },
+    { color: 'rgba(55, 179, 237, 0.30)', width: 2, mu: -0.0001, sigma: 0.015, startY: 0.35 },
   ];
 
   // Number of steps = horizontal pixels
@@ -275,14 +292,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  //  ANIMATION LOOP
+  //  ANIMATION LOOP (with visibility optimization)
   // ==========================================
+  let animationId = null;
+  let isHeroVisible = true;
+
+  // Pause canvas animation when hero is not visible (performance)
+  const heroSection = document.getElementById('home');
+  if (heroSection) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isHeroVisible = entry.isIntersecting;
+        if (isHeroVisible && !animationId) {
+          animate();
+        }
+      });
+    }, { threshold: 0.01 });
+    heroObserver.observe(heroSection);
+  }
+
   function animate() {
+    if (!isHeroVisible) {
+      animationId = null;
+      return;
+    }
     ctx.clearRect(0, 0, W, H);
     updateParticles();
     drawParticles();
     drawBMPaths();
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
   }
 
   // Respect prefers-reduced-motion

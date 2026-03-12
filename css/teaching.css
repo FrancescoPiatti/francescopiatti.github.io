@@ -12,8 +12,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-sm);
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
 }
 
 .course-card__role {
@@ -23,9 +23,9 @@
   letter-spacing: 0.05em;
   padding: 0.25rem 0.75rem;
   border-radius: var(--pill-radius);
-  background: rgba(102, 126, 234, 0.15);
-  color: #8ba4f0;
-  border: 1px solid rgba(102, 126, 234, 0.25);
+  background: rgba(20, 157, 221, 0.15);
+  color: #5fb4e8;
+  border: 1px solid rgba(20, 157, 221, 0.25);
   flex-shrink: 0;
 }
 

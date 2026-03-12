@@ -18,14 +18,18 @@
   box-shadow: var(--glass-shadow-hover), var(--glass-inner-glow);
 }
 
-/* Interactive glass card (lifts on hover) */
+/* Interactive glass card (lifts on hover with subtle blue glow) */
 .glass--interactive:hover {
   transform: translateY(-4px);
+  border-color: rgba(20, 157, 221, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1),
+              0 0 20px rgba(20, 157, 221, 0.08);
 }
 
 /* Stronger glass for navigation */
 .glass--nav {
-  background: rgba(10, 10, 26, 0.7);
+  background: rgba(4, 11, 20, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
@@ -73,9 +77,9 @@
 /* Fallback for browsers without backdrop-filter */
 @supports not (backdrop-filter: blur(1px)) {
   .glass {
-    background: rgba(13, 27, 42, 0.92);
+    background: rgba(4, 11, 20, 0.95);
   }
   .glass--nav {
-    background: rgba(10, 10, 26, 0.95);
+    background: rgba(4, 11, 20, 0.97);
   }
 }

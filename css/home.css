@@ -1,5 +1,5 @@
 /* ================================================================
-   HOME PAGE — Near-black background, green/teal quant terminal
+   HOME PAGE — Near-black background, blue/cyan quant terminal
    ================================================================ */
 
 /* Hero section */
@@ -23,12 +23,13 @@
   height: 100%;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(52, 211, 153, 0.03) 0%, transparent 40%),
-    radial-gradient(ellipse at 80% 20%, rgba(74, 222, 128, 0.02) 0%, transparent 40%),
-    #030308;
+    radial-gradient(ellipse at 50% 50%, rgba(20, 157, 221, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(55, 179, 237, 0.03) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 20%, rgba(69, 198, 255, 0.02) 0%, transparent 40%),
+    #000000;
 }
 
+/* Hero glass card — base .glass with reduced blur & opacity */
 .hero__card {
   text-align: center;
   padding: var(--space-xl) var(--space-2xl);
@@ -36,6 +37,18 @@
   width: 100%;
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Disable hover effect on hero card — keep it static */
+.hero__card:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .hero__name {
@@ -98,10 +111,10 @@
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(52, 211, 153, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 211, 153, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(52, 211, 153, 0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 211, 153, 0.10) 1px, transparent 1px);
+    linear-gradient(rgba(20, 157, 221, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 157, 221, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(20, 157, 221, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 157, 221, 0.10) 1px, transparent 1px);
   background-size: 80px 60px, 80px 60px, 320px 240px, 320px 240px;
   mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 80%);
@@ -120,7 +133,7 @@
 .math-symbol {
   position: absolute;
   font-family: 'Times New Roman', 'Georgia', serif;
-  color: rgba(52, 211, 153, 0.15);
+  color: rgba(20, 157, 221, 0.15);
   pointer-events: none;
   user-select: none;
 }
@@ -133,13 +146,13 @@
 .math-symbol--6  { top: 58%;  left: 4%;   font-size: 1.8rem;  font-style: italic; animation: symbolFloat 19s ease-in-out 5s infinite alternate; }
 .math-symbol--7  { bottom: 12%; left: 35%; font-size: 2.2rem; animation: symbolFloat 21s ease-in-out 6s infinite alternate; }
 .math-symbol--8  { top: 38%;  right: 4%;  font-size: 3rem;    animation: symbolFloat 17s ease-in-out 2.5s infinite alternate; }
-.math-symbol--9  { top: 45%;  left: 2%;   font-size: 2.5rem;  color: rgba(16, 185, 129, 0.12); animation: symbolFloat 23s ease-in-out 7s infinite alternate; }
-.math-symbol--10 { top: 6%;   left: 55%;  font-size: 2rem;    color: rgba(74, 222, 128, 0.12); animation: symbolFloat 15s ease-in-out 1.5s infinite alternate; }
-.math-symbol--11 { bottom: 35%; right: 18%; font-size: 3.2rem; color: rgba(52, 211, 153, 0.10); animation: symbolFloat 26s ease-in-out 8s infinite alternate; }
-.math-symbol--12 { top: 75%;  left: 20%;  font-size: 2.4rem;  color: rgba(16, 185, 129, 0.14); animation: symbolFloat 20s ease-in-out 4.5s infinite alternate; }
-.math-symbol--13 { top: 30%;  left: 28%;  font-size: 2rem;    color: rgba(74, 222, 128, 0.10); animation: symbolFloat 18s ease-in-out 3.5s infinite alternate; }
-.math-symbol--14 { bottom: 45%; right: 30%; font-size: 2.6rem; color: rgba(52, 211, 153, 0.12); animation: symbolFloat 22s ease-in-out 6.5s infinite alternate; }
-.math-symbol--15 { top: 85%;  right: 5%;  font-size: 1.9rem;  color: rgba(16, 185, 129, 0.13); animation: symbolFloat 19s ease-in-out 9s infinite alternate; }
+.math-symbol--9  { top: 45%;  left: 2%;   font-size: 2.5rem;  color: rgba(13, 142, 207, 0.12); animation: symbolFloat 23s ease-in-out 7s infinite alternate; }
+.math-symbol--10 { top: 6%;   left: 55%;  font-size: 2rem;    color: rgba(55, 179, 237, 0.12); animation: symbolFloat 15s ease-in-out 1.5s infinite alternate; }
+.math-symbol--11 { bottom: 35%; right: 18%; font-size: 3.2rem; color: rgba(20, 157, 221, 0.10); animation: symbolFloat 26s ease-in-out 8s infinite alternate; }
+.math-symbol--12 { top: 75%;  left: 20%;  font-size: 2.4rem;  color: rgba(13, 142, 207, 0.14); animation: symbolFloat 20s ease-in-out 4.5s infinite alternate; }
+.math-symbol--13 { top: 30%;  left: 28%;  font-size: 2rem;    color: rgba(55, 179, 237, 0.10); animation: symbolFloat 18s ease-in-out 3.5s infinite alternate; }
+.math-symbol--14 { bottom: 45%; right: 30%; font-size: 2.6rem; color: rgba(20, 157, 221, 0.12); animation: symbolFloat 22s ease-in-out 6.5s infinite alternate; }
+.math-symbol--15 { top: 85%;  right: 5%;  font-size: 1.9rem;  color: rgba(13, 142, 207, 0.13); animation: symbolFloat 19s ease-in-out 9s infinite alternate; }
 
 /* ========== FULL FORMULAS (10 total) ========== */
 
@@ -160,16 +173,16 @@
   letter-spacing: 0.03em;
 }
 
-.math-formula--1  { top: 6%;   left: 2%;   font-size: 1.1rem;  color: rgba(52, 211, 153, 0.20);  animation: formulaDrift 25s ease-in-out infinite alternate; }
-.math-formula--2  { bottom: 32%; right: 2%; font-size: 0.95rem; color: rgba(16, 185, 129, 0.17);  animation: formulaDrift 22s ease-in-out 3s infinite alternate; }
-.math-formula--3  { top: 70%;  left: 8%;   font-size: 1rem;    color: rgba(74, 222, 128, 0.18);   animation: formulaDrift 28s ease-in-out 6s infinite alternate; }
-.math-formula--4  { bottom: 6%; right: 12%; font-size: 1.05rem; color: rgba(52, 211, 153, 0.16);  animation: formulaDrift 24s ease-in-out 2s infinite alternate; }
-.math-formula--5  { top: 32%;  left: 1%;   font-size: 1.15rem; color: rgba(16, 185, 129, 0.18);   animation: formulaDrift 20s ease-in-out 4s infinite alternate; }
-.math-formula--6  { top: 80%;  right: 6%;  font-size: 0.9rem;  color: rgba(74, 222, 128, 0.14);   animation: formulaDrift 26s ease-in-out 1s infinite alternate; }
-.math-formula--7  { top: 18%;  right: 5%;  font-size: 0.85rem; color: rgba(52, 211, 153, 0.14);   animation: formulaDrift 23s ease-in-out 5s infinite alternate; }
-.math-formula--8  { bottom: 50%; left: 5%; font-size: 0.9rem;  color: rgba(16, 185, 129, 0.16);   animation: formulaDrift 27s ease-in-out 7s infinite alternate; }
-.math-formula--9  { top: 55%;  right: 3%;  font-size: 0.85rem; color: rgba(74, 222, 128, 0.13);   animation: formulaDrift 21s ease-in-out 8s infinite alternate; }
-.math-formula--10 { bottom: 15%; left: 30%; font-size: 0.9rem; color: rgba(52, 211, 153, 0.15);   animation: formulaDrift 24s ease-in-out 3.5s infinite alternate; }
+.math-formula--1  { top: 6%;   left: 2%;   font-size: 1.1rem;  color: rgba(20, 157, 221, 0.20);  animation: formulaDrift 25s ease-in-out infinite alternate; }
+.math-formula--2  { bottom: 32%; right: 2%; font-size: 0.95rem; color: rgba(13, 142, 207, 0.17);  animation: formulaDrift 22s ease-in-out 3s infinite alternate; }
+.math-formula--3  { top: 70%;  left: 8%;   font-size: 1rem;    color: rgba(55, 179, 237, 0.18);   animation: formulaDrift 28s ease-in-out 6s infinite alternate; }
+.math-formula--4  { bottom: 6%; right: 12%; font-size: 1.05rem; color: rgba(20, 157, 221, 0.16);  animation: formulaDrift 24s ease-in-out 2s infinite alternate; }
+.math-formula--5  { top: 32%;  left: 1%;   font-size: 1.15rem; color: rgba(13, 142, 207, 0.18);   animation: formulaDrift 20s ease-in-out 4s infinite alternate; }
+.math-formula--6  { top: 80%;  right: 6%;  font-size: 0.9rem;  color: rgba(55, 179, 237, 0.14);   animation: formulaDrift 26s ease-in-out 1s infinite alternate; }
+.math-formula--7  { top: 18%;  right: 5%;  font-size: 0.85rem; color: rgba(20, 157, 221, 0.14);   animation: formulaDrift 23s ease-in-out 5s infinite alternate; }
+.math-formula--8  { bottom: 50%; left: 5%; font-size: 0.9rem;  color: rgba(13, 142, 207, 0.16);   animation: formulaDrift 27s ease-in-out 7s infinite alternate; }
+.math-formula--9  { top: 55%;  right: 3%;  font-size: 0.85rem; color: rgba(55, 179, 237, 0.13);   animation: formulaDrift 21s ease-in-out 8s infinite alternate; }
+.math-formula--10 { bottom: 15%; left: 30%; font-size: 0.9rem; color: rgba(20, 157, 221, 0.15);   animation: formulaDrift 24s ease-in-out 3.5s infinite alternate; }
 
 /* ========== STOCK NUMBERS (15 total) ========== */
 
@@ -193,7 +206,7 @@
 }
 
 .stock-number--up {
-  color: rgba(52, 211, 153, 0.30);
+  color: rgba(20, 157, 221, 0.30);
 }
 
 .stock-number--down {
@@ -210,11 +223,11 @@
 .stock-number--8  { top: 48%;  right: 1%;  font-size: 0.9rem;  animation: numberPulse 19s ease-in-out 1.5s infinite alternate; }
 .stock-number--9  { bottom: 38%; left: 22%; animation: numberPulse 13s ease-in-out 7s infinite alternate; }
 .stock-number--10 { top: 65%;  right: 18%; animation: numberPulse 21s ease-in-out 2.5s infinite alternate; }
-.stock-number--11 { top: 10%;  left: 10%;  font-size: 0.8rem;  color: rgba(16, 185, 129, 0.20); animation: numberPulse 16s ease-in-out 8s infinite alternate; }
-.stock-number--12 { top: 14%;  left: 14%;  color: rgba(52, 211, 153, 0.25); animation: numberPulse 14s ease-in-out 9s infinite alternate; }
+.stock-number--11 { top: 10%;  left: 10%;  font-size: 0.8rem;  color: rgba(13, 142, 207, 0.20); animation: numberPulse 16s ease-in-out 8s infinite alternate; }
+.stock-number--12 { top: 14%;  left: 14%;  color: rgba(20, 157, 221, 0.25); animation: numberPulse 14s ease-in-out 9s infinite alternate; }
 .stock-number--13 { bottom: 42%; right: 6%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.14); animation: numberPulse 18s ease-in-out 4.5s infinite alternate; }
 .stock-number--14 { top: 72%;  left: 3%;   animation: numberPulse 15s ease-in-out 6.5s infinite alternate; }
-.stock-number--15 { bottom: 8%; left: 55%;  font-size: 0.8rem; color: rgba(16, 185, 129, 0.18); animation: numberPulse 20s ease-in-out 3.5s infinite alternate; }
+.stock-number--15 { bottom: 8%; left: 55%;  font-size: 0.8rem; color: rgba(13, 142, 207, 0.18); animation: numberPulse 20s ease-in-out 3.5s infinite alternate; }
 
 /* ========== SCROLLING TICKER TAPES ========== */
 
@@ -223,7 +236,7 @@
   left: 0;
   width: 100%;
   overflow: hidden;
-  opacity: 0.20;
+  opacity: 0.25;
 }
 
 .hero__ticker--top    { top: 8%; }
@@ -243,7 +256,7 @@
 
 .ticker__item {
   font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.04em;
 }
@@ -253,7 +266,7 @@
   margin-left: 0.4em;
 }
 
-.ticker__up  { color: rgba(52, 211, 153, 0.85); }
+.ticker__up  { color: rgba(20, 157, 221, 0.85); }
 .ticker__down { color: rgba(248, 113, 113, 0.80); }
 
 /* ========== ABOUT SECTION ========== */

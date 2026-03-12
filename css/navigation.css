@@ -65,6 +65,7 @@
 /* Active page */
 .nav__link--active {
   color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(20, 157, 221, 0.4);
 }
 
 .nav__link--active::after {

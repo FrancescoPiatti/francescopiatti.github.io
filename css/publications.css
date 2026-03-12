@@ -39,18 +39,18 @@
   letter-spacing: 0.05em;
   padding: 0.25rem 0.75rem;
   border-radius: var(--pill-radius);
-  background: rgba(102, 126, 234, 0.15);
+  background: rgba(20, 157, 221, 0.15);
   color: var(--gradient-1);
-  border: 1px solid rgba(102, 126, 234, 0.25);
+  border: 1px solid rgba(20, 157, 221, 0.25);
 }
 
 .publication-card__status--published {
-  background: rgba(102, 126, 234, 0.15);
-  color: #8ba4f0;
+  background: rgba(20, 157, 221, 0.15);
+  color: #5fb4e8;
 }
 
 .publication-card__status--preprint {
-  background: rgba(79, 172, 254, 0.12);
+  background: rgba(55, 179, 237, 0.12);
   color: #7ec4ff;
 }
 
@@ -153,8 +153,8 @@
 }
 
 .status-dot--progress {
-  background: #4ade80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+  background: #37b3ed;
+  box-shadow: 0 0 6px rgba(55, 179, 237, 0.4);
 }
 
 .status-dot--submitted {
