@@ -99,12 +99,15 @@
 .abstract-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
+  /* Only max-height animates; padding snaps so scrollHeight is correct the
+     instant main.js measures it (otherwise the open padding clips ~32px). */
+  transition: max-height 0.4s ease;
   padding: 0 var(--space-sm);
 }
 
+/* --open sets padding only; max-height is set inline from scrollHeight in
+   main.js so the full abstract is revealed at any width (no fixed cap). */
 .abstract-content--open {
-  max-height: 300px;
   padding: var(--space-sm);
 }
 

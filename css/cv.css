@@ -32,10 +32,15 @@
   border-radius: var(--card-radius);
 }
 
+/* Group headings (Education, Work Experience, …) sit between the page title
+   "Curriculum Vitae" (--fs-h2) and the entry titles (--fs-h3) so they clearly
+   read as section headers above their entries. */
 .cv-section__title {
-  font-size: var(--fs-h2);
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
   margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
   position: relative;
+  border-bottom: 1px solid rgba(20, 157, 221, 0.15);
 }
 
 /* CV entries */
@@ -69,7 +74,7 @@
 
 .cv-entry__org {
   font-size: var(--fs-body);
-  color: var(--text-accent);
+  color: var(--text-secondary);
   margin-bottom: var(--space-xs);
 }
 

@@ -83,7 +83,11 @@
 .nav__toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -110,4 +114,21 @@
 
 .nav__toggle--active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu backdrop scrim — covers the page behind the drawer,
+   click anywhere on it to close. Only visible while the menu is open. */
+.nav__scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 998;
+}
+
+body.menu-open .nav__scrim {
+  opacity: 1;
+  pointer-events: auto;
 }

@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -144,11 +140,16 @@ a:hover {
 .footer__socials {
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-xs);
   margin-bottom: var(--space-sm);
 }
 
 .footer__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   color: var(--text-tertiary);
   transition: color var(--transition-fast), transform var(--transition-fast);
 }

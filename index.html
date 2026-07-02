@@ -5,10 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Francesco Piatti - PhD Student in Mathematics at Imperial College London & University of Oxford. Research in Neural SDEs, Rough Paths, and AI for Finance.">
   <meta name="author" content="Francesco Piatti">
+  <link rel="canonical" href="https://francescopiatti.com/">
   <meta property="og:title" content="Francesco Piatti - Academic Website">
   <meta property="og:description" content="PhD Student in Mathematics at Imperial College London & University of Oxford">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://francescopiatti.com/">
+  <meta property="og:site_name" content="Francesco Piatti">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://francescopiatti.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Francesco Piatti — PhD Student in Mathematics, Imperial College London & University of Oxford">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://francescopiatti.com/assets/og-image.png">
   <title>Francesco Piatti | Academic Website</title>
+
+  <!-- Mark that JS is available so CSS can gate reveal animations.
+       Without JS, content stays visible instead of hidden. Runs before paint. -->
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +62,9 @@
     </div>
   </nav>
 
+  <!-- Mobile menu backdrop — click anywhere on it to close the drawer -->
+  <div class="nav__scrim" id="nav-scrim"></div>
+
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="home">
 
@@ -83,13 +100,13 @@
       <div class="hero__formulas">
         <span class="math-formula math-formula--1">dS = &mu;S dt + &sigma;S dW</span>
         <span class="math-formula math-formula--2">&part;V/&part;t + &frac12;&sigma;&sup2;S&sup2;&part;&sup2;V/&part;S&sup2; = rV</span>
-        <span class="math-formula math-formula--3">E[e<sup>&minus;rT</sup>(S<sub>T</sub> &minus; K)<sup>+</sup>]</span>
+        <span class="math-formula math-formula--3">dY<sub>t</sub> = f(Y<sub>t</sub>) dX<sub>t</sub></span>
         <span class="math-formula math-formula--4">dX<sub>t</sub> = f(X<sub>t</sub>)dt + g(X<sub>t</sub>)dW<sub>t</sub></span>
         <span class="math-formula math-formula--5">&int;<sub>0</sub><sup>T</sup> &sigma;<sub>s</sub> dW<sub>s</sub></span>
-        <span class="math-formula math-formula--6">P(S<sub>T</sub> &gt; K) = &Phi;(d<sub>2</sub>)</span>
-        <span class="math-formula math-formula--7">X<sub>n+1</sub> = X<sub>n</sub> + &mu;&Delta;t + &sigma;&Delta;W<sub>n</sub></span>
-        <span class="math-formula math-formula--8">v(t,x) = E[&phi;(X<sub>T</sub>) | X<sub>t</sub> = x]</span>
-        <span class="math-formula math-formula--9">&nabla;<sub>&theta;</sub>L = &minus;E[&nabla; log p<sub>&theta;</sub>]</span>
+        <span class="math-formula math-formula--6">k(x,y) = &lang;S(x), S(y)&rang;</span>
+        <span class="math-formula math-formula--7">Sig(X)<sub>0,t</sub> = (1, X<sup>1</sup>, X<sup>2</sup>, &hellip;)</span>
+        <span class="math-formula math-formula--8">h<sub>t</sub> = A h<sub>t&minus;1</sub> + B x<sub>t</sub></span>
+        <span class="math-formula math-formula--9">&nabla;<sub>&theta;</sub>&#8466; = &minus;E[&nabla; log p<sub>&theta;</sub>]</span>
         <span class="math-formula math-formula--10">softmax(z<sub>i</sub>) = e<sup>z<sub>i</sub></sup> / &Sigma;e<sup>z<sub>j</sub></sup></span>
       </div>
 
@@ -267,7 +284,7 @@
         <!-- PUBLICATION ITEM -->
         <article class="publication-card glass glass--interactive reveal">
           <div class="publication-card__header">
-            <span class="publication-card__status publication-card__status--published">SIAM Journal on Numerical Analysis</span>
+            <span class="publication-card__status publication-card__status--published">SINUM 2025</span>
           </div>
           <h3 class="publication-card__title">Numerical Schemes for Signature Kernels</h3>
           <p class="publication-card__authors">
