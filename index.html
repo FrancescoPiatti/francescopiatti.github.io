@@ -289,17 +289,24 @@
             <strong>Piatti, F.</strong>, Iannucci, A., &amp; Cass, T. (2026)
           </p>
           <p class="publication-card__venue">Under review at ICLR 2027</p>
-          <!-- TODO: add abstract and links (PDF / arXiv / Code) once available
           <button class="abstract-toggle glass--pill">Show Abstract</button>
           <div class="abstract-content">
-            <p>ABSTRACT</p>
+            <p>Neural Stochastic Differential Equations (Neural SDEs) provide flexible continuous-time generative models, but generic neural
+            drift and diffusion networks are costly to simulate on long horizons and can give unstable gradients when the training signal
+            is a path functional rather than a pointwise observation. We introduce SLiSDE, a family of Neural SDE models built from
+            structured linear stochastic layers. Parallel-in-time simulation is obtained at the layer level, while expressivity is recovered
+            by gated in-flow stacking: previous-layer paths modulate the next layer's latent flow through learned gates. For functional
+            calibration tasks in which rare paths dominate the loss, we add an optional Girsanov tilt that acts as a learned importance
+            sampler with an exact likelihood-ratio correction. We prove well-posedness, a discretisation error bound, validity of the change
+            of measure, and a universality result: the terminal laws of the gated stack are dense in the space of square-integrable laws.
+            Experiments on functional calibration benchmarks show that the structured model outperforms fully neural SDE baselines while
+            retaining parallel-time simulation and stable importance weights.</p>
           </div>
           <div class="publication-card__links">
-            <a href="assets/docs/FILE.pdf" class="glass--pill">PDF</a>
-            <a href="https://arxiv.org/abs/XXXX.XXXXX" class="glass--pill">arXiv</a>
-            <a href="https://github.com/FrancescoPiatti/REPO" class="glass--pill">Code</a>
+            <a href="assets/docs/SLiSDE.pdf" download="Structured_Neural_SDEs_for_Functional_Calibration.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/abs/2609.34831" class="glass--pill">arXiv</a>
+            <a href="https://github.com/FrancescoPiatti/SLiSDE" class="glass--pill">Code</a>
           </div>
-          -->
         </article>
         <!-- END PUBLICATION ITEM -->
 
