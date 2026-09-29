@@ -239,6 +239,34 @@
         </div>
         <!-- ========== END RESEARCH INTERESTS ========== -->
       </div>
+
+      <!-- ========== READING ROOM (app showcase) ========== -->
+      <div class="reading-room glass reveal" style="padding: var(--space-lg); margin-top: var(--space-md);">
+        <h2>Reading Room</h2>
+        <p class="reading-room__tagline">Read a paper once. Keep the understanding.</p>
+        <p>
+          I have just built <strong>Reading Room</strong>, an open-source app for researchers who cannot afford API usage
+          but still want to put AI to work on their reading. It turns each paper into a focused, multi-tab breakdown
+          &mdash; mathematics, methods, results, significance &mdash; with live LaTeX, written by your own AI coding assistant
+          (Claude Code, Codex CLI or Gemini CLI) under the subscription you already have: no API key, no API billing.
+        </p>
+        <p>
+          Everything lives in a clean interface that doubles as a library manager: a searchable catalogue of every paper
+          you have read, a connections graph of how they cite each other, side-by-side comparisons, and a reference
+          library with one-click BibTeX export. Reports build to plain HTML you own &mdash; open them offline or host them
+          for free on GitHub Pages.
+        </p>
+        <a href="https://francescopiatti.com/Reading-Room-Website" target="_blank" rel="noopener noreferrer"
+           class="cv-download-btn glass glass--interactive" style="margin-top: var(--space-md);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          View Reading Room Website
+        </a>
+      </div>
+      <!-- ========== END READING ROOM ========== -->
     </div>
   </section>
 
@@ -254,13 +282,61 @@
         <!-- PUBLICATION ITEM -->
         <article class="publication-card glass glass--interactive reveal">
           <div class="publication-card__header">
+            <span class="publication-card__status publication-card__status--preprint">Under Review</span>
+          </div>
+          <h3 class="publication-card__title">Structured Neural SDEs for Functional Calibration</h3>
+          <p class="publication-card__authors">
+            <strong>Piatti, F.</strong>, Iannucci, A., &amp; Cass, T. (2026)
+          </p>
+          <p class="publication-card__venue">Under review at ICLR 2027</p>
+          <!-- TODO: add abstract and links (PDF / arXiv / Code) once available
+          <button class="abstract-toggle glass--pill">Show Abstract</button>
+          <div class="abstract-content">
+            <p>ABSTRACT</p>
+          </div>
+          <div class="publication-card__links">
+            <a href="assets/docs/FILE.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/abs/XXXX.XXXXX" class="glass--pill">arXiv</a>
+            <a href="https://github.com/FrancescoPiatti/REPO" class="glass--pill">Code</a>
+          </div>
+          -->
+        </article>
+        <!-- END PUBLICATION ITEM -->
+
+        <!-- PUBLICATION ITEM -->
+        <article class="publication-card glass glass--interactive reveal">
+          <div class="publication-card__header">
+            <span class="publication-card__status publication-card__status--preprint">Pre-Print</span>
+          </div>
+          <h3 class="publication-card__title">Propagating Log-Signatures: Lie-Algebraic Models for Sequential Data</h3>
+          <p class="publication-card__authors">
+            Ferrera, A., <strong>Piatti, F.</strong>, &amp; Cass, T. (2026)
+          </p>
+          <p class="publication-card__venue">Pre-Print</p>
+          <!-- TODO: add abstract and links (PDF / arXiv / Code) once available
+          <button class="abstract-toggle glass--pill">Show Abstract</button>
+          <div class="abstract-content">
+            <p>ABSTRACT</p>
+          </div>
+          <div class="publication-card__links">
+            <a href="assets/docs/FILE.pdf" class="glass--pill">PDF</a>
+            <a href="https://arxiv.org/abs/XXXX.XXXXX" class="glass--pill">arXiv</a>
+            <a href="https://github.com/FrancescoPiatti/REPO" class="glass--pill">Code</a>
+          </div>
+          -->
+        </article>
+        <!-- END PUBLICATION ITEM -->
+
+        <!-- PUBLICATION ITEM -->
+        <article class="publication-card glass glass--interactive reveal">
+          <div class="publication-card__header">
             <span class="publication-card__status publication-card__status--published">ICLR 2026</span>
           </div>
           <h3 class="publication-card__title">Random Controlled Differential Equations</h3>
           <p class="publication-card__authors">
             <strong>Piatti, F.</strong>, Cass, T., &amp; Turner, W. (2026)
           </p>
-          <p class="publication-card__venue">Accepted for publication at ICLR 2026</p>
+          <p class="publication-card__venue">International Conference on Learning Representations (ICLR 2026), pp. 84345-84374</p>
           <button class="abstract-toggle glass--pill">Show Abstract</button>
           <div class="abstract-content">
             <p> We introduce a training-efficient framework for time-series learning that combines random features with controlled differential equations (CDEs).
@@ -378,13 +454,14 @@
             <span class="status-dot status-dot--progress"></span>
             In Progress
           </div>
-          <h3 class="project-card__title">Structured Linear NSDEs</h3>
+          <h3 class="project-card__title">The Free Signature Transform and Schwinger-Dyson Kernels</h3>
           <p class="project-card__description">
-            Joint with Prof. Cass.
+            Joint with Prof. Cass and Dr. Bizzi.
           </p>
           <div class="project-card__tags">
-            <span class="glass--pill">Neural SDEs</span>
-            <span class="glass--pill">State Space Models</span>
+            <span class="glass--pill">Signatures</span>
+            <span class="glass--pill">Kernels</span>
+            <span class="glass--pill">Free Probability</span>
           </div>
         </article>
         <!-- END PROJECT ITEM -->
@@ -395,13 +472,13 @@
             <span class="status-dot status-dot--progress"></span>
             In Progress
           </div>
-          <h3 class="project-card__title">Multi-Level Monte-Carlo for Expected Signatures</h3>
+          <h3 class="project-card__title">Cubature on Wigner Space</h3>
           <p class="project-card__description">
-            Joint with Prof. Cass.
+            Joint with Prof. Cass and Dr. Bizzi.
           </p>
           <div class="project-card__tags">
-            <span class="glass--pill">Monte Carlo</span>
-            <span class="glass--pill">Signatures</span>
+            <span class="glass--pill">Cubature</span>
+            <span class="glass--pill">Free Probability</span>
           </div>
         </article>
         <!-- END PROJECT ITEM -->
@@ -595,7 +672,7 @@
         <article class="course-card glass glass--interactive reveal">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
-            <span class="course-card__year">2025</span>
+            <span class="course-card__year">2025 &amp; 2026</span>
           </div>
           <h3 class="course-card__title">Statistics for Finance</h3>
           <p class="course-card__dept">Department of Mathematics, Imperial College London</p>
@@ -610,7 +687,7 @@
         <article class="course-card glass glass--interactive reveal">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
-            <span class="course-card__year">2025</span>
+            <span class="course-card__year">2025 &amp; 2026</span>
           </div>
           <h3 class="course-card__title">Applied Trading Strategies</h3>
           <p class="course-card__dept">Imperial College Business School</p>

@@ -272,12 +272,22 @@
 
 /* ========== ABOUT SECTION ========== */
 
-.about h2 {
+.about h2,
+.reading-room h2 {
   margin-bottom: var(--space-md);
 }
 
-.research-tags {
+.research-tags,
+.reading-room__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
+}
+
+.reading-room__tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
 }
