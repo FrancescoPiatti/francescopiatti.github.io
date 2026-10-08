@@ -1,56 +1,25 @@
-.teaching-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-md);
-}
-
+/* =====================================================================
+   TEACHING — one pane, course rows with the year on the right rail
+   ===================================================================== */
+.teaching-list { padding: 0.4rem clamp(1.25rem, 3vw, 2.5rem); }
 .course-card {
-  padding: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 9rem;
+  gap: 0.5rem 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--hairline);
 }
-
-.course-card__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-xs);
-}
-
-.course-card__role {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--pill-radius);
-  background: rgba(20, 157, 221, 0.15);
-  color: #5fb4e8;
-  border: 1px solid rgba(20, 157, 221, 0.25);
-  flex-shrink: 0;
-}
-
+.course-card:first-child { border-top: 0; }
+.course-card__header { grid-column: 2; grid-row: 1 / span 3; text-align: right; }
+.course-card__role { display: none; }           /* every entry is a TA post; the lede says so once */
 .course-card__year {
-  font-size: var(--fs-small);
-  color: var(--text-tertiary);
-  flex-shrink: 0;
-  text-align: right;
-  margin-left: auto;
-  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.03em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.3rem;
 }
-
-.course-card__title {
-  font-size: var(--fs-h3);
-  margin-bottom: var(--space-xs);
-}
-
-.course-card__dept {
-  font-size: var(--fs-small);
-  color: var(--text-accent);
-  margin-bottom: var(--space-sm);
-}
-
-.course-card__description {
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
+.course-card__title { grid-column: 1; font-size: 1.15rem; font-weight: 500; letter-spacing: -0.012em; }
+.course-card__dept { grid-column: 1; font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.02em; color: var(--text-3); }
+.course-card__description { grid-column: 1; color: var(--text-2); font-size: var(--fs-small); line-height: 1.6; margin-top: 0.35rem; max-width: 68ch; }

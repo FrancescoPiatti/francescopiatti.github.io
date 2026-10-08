@@ -19,6 +19,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://francescopiatti.com/assets/og-image.png">
   <title>Francesco Piatti | Academic Website</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000'/%3E%3Cpath d='M8 40 L18 30 L26 36 L34 22 L42 32 L50 18 L56 26' fill='none' stroke='%2345c6ff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <!-- Mark that JS is available so CSS can gate reveal animations.
        Without JS, content stays visible instead of hidden. Runs before paint. -->
@@ -27,7 +29,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=STIX+Two+Text:ital@1&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/variables.css">
@@ -43,23 +45,21 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <a class="skip-link" href="#research">Skip to content</a>
 
   <!-- ========== NAVIGATION ========== -->
-  <nav class="nav glass--nav" id="navbar">
-    <div class="nav__container">
-      <a href="#home" class="nav__logo">FP</a>
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#home" class="nav__link" data-section="home">Home</a></li>
-        <li><a href="#research" class="nav__link" data-section="research">Research</a></li>
-        <li><a href="#cv" class="nav__link" data-section="cv">CV</a></li>
-        <li><a href="#teaching" class="nav__link" data-section="teaching">Teaching</a></li>
-      </ul>
-      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+  <nav class="nav glass glass--blur" id="navbar" aria-label="Primary">
+    <a href="#home" class="nav__logo">FP</a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#home" class="nav__link" data-section="home">Home</a></li>
+      <li><a href="#research" class="nav__link" data-section="research">Research</a></li>
+      <li><a href="#cv" class="nav__link" data-section="cv">CV</a></li>
+      <li><a href="#teaching" class="nav__link" data-section="teaching">Teaching</a></li>
+    </ul>
+    <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="btn btn--ghost nav__cta">CV <span class="btn__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span></a>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- Mobile menu backdrop — click anywhere on it to close the drawer -->
@@ -68,16 +68,10 @@
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="home">
 
-    <!-- Thematic background: dense quant finance / mathematics aesthetic -->
+    <!-- Live terminal: price paths + Brownian swarm (canvas), notation, ticker -->
     <div class="hero__bg" aria-hidden="true">
-
-      <!-- Financial chart grid lines -->
       <div class="hero__grid"></div>
-
-      <!-- Canvas: particles + true Brownian motion paths (rendered via JS) -->
       <canvas id="hero-canvas"></canvas>
-
-      <!-- Floating mathematical symbols -->
       <div class="hero__symbols">
         <span class="math-symbol math-symbol--1">dW<sub>t</sub></span>
         <span class="math-symbol math-symbol--2">&part;</span>
@@ -96,7 +90,6 @@
         <span class="math-symbol math-symbol--15">&beta;</span>
       </div>
 
-      <!-- Full SDE / finance / ML formulas -->
       <div class="hero__formulas">
         <span class="math-formula math-formula--1">dS = &mu;S dt + &sigma;S dW</span>
         <span class="math-formula math-formula--2">&part;V/&part;t + &frac12;&sigma;&sup2;S&sup2;&part;&sup2;V/&part;S&sup2; = rV</span>
@@ -110,50 +103,10 @@
         <span class="math-formula math-formula--10">softmax(z<sub>i</sub>) = e<sup>z<sub>i</sub></sup> / &Sigma;e<sup>z<sub>j</sub></sup></span>
       </div>
 
-      <!-- Stock prices & financial numbers -->
-      <div class="hero__numbers">
-        <span class="stock-number stock-number--1">142.57</span>
-        <span class="stock-number stock-number--2 stock-number--up">+2.34%</span>
-        <span class="stock-number stock-number--3">0.9847</span>
-        <span class="stock-number stock-number--4 stock-number--down">&minus;1.12%</span>
-        <span class="stock-number stock-number--5">3,847.92</span>
-        <span class="stock-number stock-number--6 stock-number--up">+0.67%</span>
-        <span class="stock-number stock-number--7">98.23</span>
-        <span class="stock-number stock-number--8">1.0532</span>
-        <span class="stock-number stock-number--9 stock-number--up">+4.21%</span>
-        <span class="stock-number stock-number--10 stock-number--down">&minus;0.89%</span>
-        <span class="stock-number stock-number--11">Vol: 0.23</span>
-        <span class="stock-number stock-number--12 stock-number--up">+12bp</span>
-        <span class="stock-number stock-number--13">Yield: 4.31%</span>
-        <span class="stock-number stock-number--14 stock-number--down">&minus;2.67%</span>
-        <span class="stock-number stock-number--15">Sprd: 142</span>
-      </div>
-
-      <!-- Top ticker tape (scrolls left) -->
-      <div class="hero__ticker hero__ticker--top">
+      <div class="price-tags" id="price-tags"></div>
+      <!-- Market ticker along the bottom edge -->
+      <div class="hero__ticker" aria-label="Simulated market ticker">
         <div class="ticker__track">
-          <span class="ticker__item">AAPL 189.42 <em class="ticker__up">+1.23%</em></span>
-          <span class="ticker__item">MSFT 415.60 <em class="ticker__down">&minus;0.45%</em></span>
-          <span class="ticker__item">FTSE 8,247.31 <em class="ticker__up">+0.82%</em></span>
-          <span class="ticker__item">BTC 67,432.10 <em class="ticker__up">+3.14%</em></span>
-          <span class="ticker__item">EUR/USD 1.0847 <em class="ticker__down">&minus;0.21%</em></span>
-          <span class="ticker__item">10Y UST 4.312% <em class="ticker__up">+2bp</em></span>
-          <span class="ticker__item">SPX 5,321.08 <em class="ticker__up">+0.55%</em></span>
-          <span class="ticker__item">VIX 14.32 <em class="ticker__down">&minus;4.2%</em></span>
-          <span class="ticker__item">AAPL 189.42 <em class="ticker__up">+1.23%</em></span>
-          <span class="ticker__item">MSFT 415.60 <em class="ticker__down">&minus;0.45%</em></span>
-          <span class="ticker__item">FTSE 8,247.31 <em class="ticker__up">+0.82%</em></span>
-          <span class="ticker__item">BTC 67,432.10 <em class="ticker__up">+3.14%</em></span>
-          <span class="ticker__item">EUR/USD 1.0847 <em class="ticker__down">&minus;0.21%</em></span>
-          <span class="ticker__item">10Y UST 4.312% <em class="ticker__up">+2bp</em></span>
-          <span class="ticker__item">SPX 5,321.08 <em class="ticker__up">+0.55%</em></span>
-          <span class="ticker__item">VIX 14.32 <em class="ticker__down">&minus;4.2%</em></span>
-        </div>
-      </div>
-
-      <!-- Bottom ticker tape (scrolls right) -->
-      <div class="hero__ticker hero__ticker--bottom">
-        <div class="ticker__track ticker__track--reverse">
           <span class="ticker__item">NVDA 892.14 <em class="ticker__up">+2.87%</em></span>
           <span class="ticker__item">TSLA 241.30 <em class="ticker__down">&minus;1.53%</em></span>
           <span class="ticker__item">DAX 18,421.50 <em class="ticker__up">+0.41%</em></span>
@@ -174,40 +127,23 @@
       </div>
     </div>
 
-    <div class="hero__card glass">
+    <div class="hero__content container">
       <h1 class="hero__name">Francesco Piatti</h1>
-      <div class="hero__accent"></div>
-      <p class="hero__subtitle">PhD Student in Mathematics</p>
-      <p class="hero__affiliation">Imperial College London &amp; University of Oxford</p>
-
-      <div class="hero__socials">
-        <!-- GitHub -->
-        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-          </svg>
-        </a>
-        <!-- LinkedIn -->
-        <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>
-        </a>
-        <!-- Google Scholar -->
-        <a href="https://scholar.google.com/citations?user=kGBj96kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Google Scholar">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-          </svg>
-        </a>
-        <!-- Email -->
-        <a href="mailto:francesco.piatti19@imperial.ac.uk" class="social-icon" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-          </svg>
-        </a>
+      <div class="hero__row">
+        <div>
+          <p class="hero__line">Stochastic analysis and machine learning for sequential data.</p>
+          <p class="hero__affil mono">PhD Student in Mathematics <span class="hero__affil-inst">&middot; Imperial College London &amp; University of Oxford</span></p>
+        </div>
+        <div class="hero__actions">
+          <a href="#research" class="btn">Research <span class="btn__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a>
+          <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="btn btn--ghost">Download CV <span class="btn__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span></a>
+          <div class="hero__socials">
+          <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=kGBj96kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 10l10 7 10-7-10-7z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></a>
+          <a href="mailto:francesco.piatti19@imperial.ac.uk" class="icon-btn" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -215,8 +151,10 @@
   <!-- ========== ABOUT / RESEARCH INTERESTS ========== -->
   <section class="section">
     <div class="container">
-      <div class="about glass reveal" style="padding: var(--space-lg);">
-        <h2>About Me</h2>
+      <div class="section__head reveal"><h2 class="section__title">About</h2></div>
+      <div class="about glass reveal">
+        <div class="about__grid">
+        <div>
         <p>
           I am a PhD student in the Centre for Doctoral Training (CDT) in Mathematics of Random Systems,
           a joint programme between Imperial College London and the University of Oxford, funded by an EPSRC studentship.
@@ -224,12 +162,13 @@
         </p>
         <p>
           My research lies at the intersection of stochastic analysis and machine learning models for sequential data.
-          I am particulalry interested in neural stochastic/controlled differential equations and state space models.
+          I am particularly interested in neural stochastic/controlled differential equations and state space models.
           Previously, I completed my MSci in Mathematics at Imperial College London with First Class Honours.
         </p>
+        </div>
 
         <!-- ========== RESEARCH INTERESTS: Edit these tags ========== -->
-        <div class="research-tags reveal-stagger" style="margin-top: var(--space-md);">
+        <div class="research-tags reveal-stagger">
           <span class="glass--pill">Neural SDEs</span>
           <span class="glass--pill">State Space Models</span>
           <span class="glass--pill">Rough Paths &amp; Signatures</span>
@@ -238,12 +177,23 @@
           <span class="glass--pill">Mathematical Finance</span>
         </div>
         <!-- ========== END RESEARCH INTERESTS ========== -->
+        </div>
       </div>
 
       <!-- ========== READING ROOM (app showcase) ========== -->
-      <div class="reading-room glass reveal" style="padding: var(--space-lg); margin-top: var(--space-md);">
-        <h2>Reading Room</h2>
-        <p class="reading-room__tagline">Read a paper once. Keep the understanding.</p>
+    </div>
+  </section>
+
+  <!-- ========== READING ROOM ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal"><h2 class="section__title">Reading Room</h2></div>
+      <div class="reading-room glass reveal">
+        <div class="reading-room__grid">
+        <div>
+          <p class="reading-room__tagline">Read a paper once. Keep the understanding.</p>
+        </div>
+        <div>
         <p>
           I have just built <strong>Reading Room</strong>, an open-source app for researchers who cannot afford API usage
           but still want to put AI to work on their reading. It turns each paper into a focused, multi-tab breakdown
@@ -256,33 +206,26 @@
           library with one-click BibTeX export. Reports build to plain HTML you own &mdash; open them offline or host them
           for free on GitHub Pages.
         </p>
-        <a href="https://francescopiatti.com/Reading-Room-Website" target="_blank" rel="noopener noreferrer"
-           class="cv-download-btn glass glass--interactive" style="margin-top: var(--space-md);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-            <polyline points="15 3 21 3 21 9"/>
-            <line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
-          View Reading Room Website
-        </a>
+        <a href="https://francescopiatti.com/Reading-Room-Website" target="_blank" rel="noopener noreferrer" class="btn">Visit Reading Room <span class="btn__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+        </div>
       </div>
       <!-- ========== END READING ROOM ========== -->
     </div>
   </section>
 
-  <hr class="section-divider">
 
   <!-- ========== RESEARCH / PUBLICATIONS ========== -->
   <section class="section" id="research">
     <div class="container">
-      <h2 class="section__title reveal">Publications &amp; Pre-Prints</h2>
+      <div class="section__head reveal"><h2 class="section__title">Publications &amp; Pre-Prints</h2></div>
 
-      <div class="publication-list">
+      <div class="publication-list glass reveal">
 
         <!-- PUBLICATION ITEM -->
-        <article class="publication-card glass glass--interactive reveal">
+        <article class="publication-card">
           <div class="publication-card__header">
-            <span class="publication-card__status publication-card__status--preprint">Under Review</span>
+            <span class="publication-card__status publication-card__status--preprint">Under review</span>
           </div>
           <h3 class="publication-card__title">Structured Neural SDEs for Functional Calibration</h3>
           <p class="publication-card__authors">
@@ -311,15 +254,14 @@
         <!-- END PUBLICATION ITEM -->
 
         <!-- PUBLICATION ITEM -->
-        <article class="publication-card glass glass--interactive reveal">
+        <article class="publication-card">
           <div class="publication-card__header">
-            <span class="publication-card__status publication-card__status--preprint">Pre-Print</span>
+            <span class="publication-card__status publication-card__status--preprint">Pre-print 2026</span>
           </div>
           <h3 class="publication-card__title">Propagating Log-Signatures: Lie-Algebraic Models for Sequential Data</h3>
           <p class="publication-card__authors">
             Ferrera, A., <strong>Piatti, F.</strong>, &amp; Cass, T. (2026)
           </p>
-          <p class="publication-card__venue">Pre-Print</p>
           <!-- TODO: add abstract and links (PDF / arXiv / Code) once available
           <button class="abstract-toggle glass--pill">Show Abstract</button>
           <div class="abstract-content">
@@ -335,7 +277,7 @@
         <!-- END PUBLICATION ITEM -->
 
         <!-- PUBLICATION ITEM -->
-        <article class="publication-card glass glass--interactive reveal">
+        <article class="publication-card">
           <div class="publication-card__header">
             <span class="publication-card__status publication-card__status--published">ICLR 2026</span>
           </div>
@@ -365,7 +307,7 @@
         <!-- END PUBLICATION ITEM -->
 
         <!-- PUBLICATION ITEM -->
-        <article class="publication-card glass glass--interactive reveal">
+        <article class="publication-card">
           <div class="publication-card__header">
             <span class="publication-card__status publication-card__status--published">SINUM 2025</span>
           </div>
@@ -394,7 +336,7 @@
         <!-- END PUBLICATION ITEM -->
 
         <!-- PUBLICATION ITEM -->
-        <article class="publication-card glass glass--interactive reveal">
+        <article class="publication-card">
           <div class="publication-card__header">
             <span class="publication-card__status publication-card__status--published">ICML 2024</span>
           </div>
@@ -433,96 +375,60 @@
   <!-- ========== WORKING PAPERS ========== -->
   <section class="section">
     <div class="container">
-      <h2 class="section__title reveal">Working Papers</h2>
+      <div class="section__head reveal"><h2 class="section__title">Working Papers</h2></div>
 
-      <div class="project-grid">
+      <div class="paper-list glass reveal">
 
-        <!-- PROJECT ITEM -->
-        <article class="project-card glass glass--interactive reveal">
-          <div class="project-card__status">
-            <span class="status-dot status-dot--progress"></span>
-            In Progress
-          </div>
-          <h3 class="project-card__title">Deep Calibration of Interest Rate Models with Neural SDEs</h3>
-          <p class="project-card__description">
-            Joint with Prof. Brigo and Dr. Ferrucci.
-          </p>
-          <div class="project-card__tags">
-            <span class="glass--pill">Neural SDEs</span>
-            <span class="glass--pill">Interest Rates</span>
-            <span class="glass--pill">Calibration</span>
+        <!-- WORKING PAPER -->
+        <article class="paper-row">
+          <div>
+            <h3 class="paper-row__title">Deep Calibration of Interest Rate Models with Neural SDEs</h3>
+            <p class="paper-row__with">Joint with Prof. Brigo and Dr. Ferrucci.</p>
+            <div class="paper-row__tags"><span class="glass--pill">Neural SDEs</span> <span class="glass--pill">Interest Rates</span> <span class="glass--pill">Calibration</span></div>
           </div>
         </article>
-        <!-- END PROJECT ITEM -->
 
-        <!-- PROJECT ITEM -->
-        <article class="project-card glass glass--interactive reveal">
-          <div class="project-card__status">
-            <span class="status-dot status-dot--progress"></span>
-            In Progress
-          </div>
-          <h3 class="project-card__title">The Free Signature Transform and Schwinger-Dyson Kernels</h3>
-          <p class="project-card__description">
-            Joint with Prof. Cass and Dr. Bizzi.
-          </p>
-          <div class="project-card__tags">
-            <span class="glass--pill">Signatures</span>
-            <span class="glass--pill">Kernels</span>
-            <span class="glass--pill">Free Probability</span>
+        <!-- WORKING PAPER -->
+        <article class="paper-row">
+          <div>
+            <h3 class="paper-row__title">The Free Signature Transform and Schwinger-Dyson Kernels</h3>
+            <p class="paper-row__with">Joint with Prof. Cass and Dr. Bizzi.</p>
+            <div class="paper-row__tags"><span class="glass--pill">Signatures</span> <span class="glass--pill">Kernels</span> <span class="glass--pill">Free Probability</span></div>
           </div>
         </article>
-        <!-- END PROJECT ITEM -->
 
-        <!-- PROJECT ITEM -->
-        <article class="project-card glass glass--interactive reveal">
-          <div class="project-card__status">
-            <span class="status-dot status-dot--progress"></span>
-            In Progress
-          </div>
-          <h3 class="project-card__title">Cubature on Wigner Space</h3>
-          <p class="project-card__description">
-            Joint with Prof. Cass and Dr. Bizzi.
-          </p>
-          <div class="project-card__tags">
-            <span class="glass--pill">Cubature</span>
-            <span class="glass--pill">Free Probability</span>
+        <!-- WORKING PAPER -->
+        <article class="paper-row">
+          <div>
+            <h3 class="paper-row__title">Cubature on Wigner Space</h3>
+            <p class="paper-row__with">Joint with Prof. Cass and Dr. Bizzi.</p>
+            <div class="paper-row__tags"><span class="glass--pill">Cubature</span> <span class="glass--pill">Free Probability</span></div>
           </div>
         </article>
-        <!-- END PROJECT ITEM -->
 
       </div>
     </div>
   </section>
 
-  <hr class="section-divider">
 
   <!-- ========== CV ========== -->
   <section class="section" id="cv">
     <div class="container">
-      <h2 class="section__title reveal">Curriculum Vitae</h2>
-
-      <!-- Download button -->
-      <div style="margin-bottom: var(--space-md);">
-        <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="cv-download-btn glass glass--interactive">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download CV (PDF)
-        </a>
+      <div class="section__head reveal">
+        <h2 class="section__title">Curriculum Vitae</h2>
+        <a href="assets/docs/cv.pdf" download="Francesco_Piatti_CV.pdf" class="btn btn--ghost">Download CV (PDF) <span class="btn__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span></a>
       </div>
 
       <div class="cv-content">
 
         <!-- EDUCATION -->
-        <div class="cv-section glass glass--accent-left reveal">
-          <h2 class="cv-section__title">Education</h2>
+        <div class="cv-section glass reveal">
+          <h3 class="cv-section__title">Education</h3>
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">PhD, Mathematics</h3>
               <span class="cv-entry__date">Sept 2023 &ndash; Present</span>
+              <h4 class="cv-entry__role">PhD, Mathematics</h4>
             </div>
             <p class="cv-entry__org">Imperial College London &ndash; University of Oxford</p>
             <ul class="cv-entry__details">
@@ -534,8 +440,8 @@
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">MSci, Mathematics</h3>
               <span class="cv-entry__date">Sept 2019 &ndash; June 2023</span>
+              <h4 class="cv-entry__role">MSci, Mathematics</h4>
             </div>
             <p class="cv-entry__org">Imperial College London</p>
             <ul class="cv-entry__details">
@@ -546,8 +452,8 @@
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">Italian Scientific High School Diploma</h3>
               <span class="cv-entry__date">Sept 2014 &ndash; July 2019</span>
+              <h4 class="cv-entry__role">Italian Scientific High School Diploma</h4>
             </div>
             <p class="cv-entry__org">Liceo Scientifico Filippo Lussana, Bergamo, Italy</p>
             <ul class="cv-entry__details">
@@ -558,13 +464,13 @@
         </div>
 
         <!-- WORK EXPERIENCE -->
-        <div class="cv-section glass glass--accent-left reveal">
-          <h2 class="cv-section__title">Work Experience</h2>
+        <div class="cv-section glass reveal">
+          <h3 class="cv-section__title">Work Experience</h3>
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">Spring Intern</h3>
               <span class="cv-entry__date">April 2025</span>
+              <h4 class="cv-entry__role">Spring Intern</h4>
             </div>
             <p class="cv-entry__org">G-Research, London, UK</p>
             <ul class="cv-entry__details">
@@ -574,8 +480,8 @@
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">Student Researcher</h3>
               <span class="cv-entry__date">July 2022 &ndash; Sept 2022</span>
+              <h4 class="cv-entry__role">Student Researcher</h4>
             </div>
             <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
             <ul class="cv-entry__details">
@@ -586,8 +492,8 @@
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">Student Researcher</h3>
               <span class="cv-entry__date">July 2021 &ndash; Sept 2021</span>
+              <h4 class="cv-entry__role">Student Researcher</h4>
             </div>
             <p class="cv-entry__org">Department of Mathematical Finance, Imperial College London</p>
             <ul class="cv-entry__details">
@@ -598,8 +504,8 @@
 
           <div class="cv-entry">
             <div class="cv-entry__header">
-              <h3 class="cv-entry__role">Summer Intern</h3>
               <span class="cv-entry__date">June 2020 &ndash; July 2020</span>
+              <h4 class="cv-entry__role">Summer Intern</h4>
             </div>
             <p class="cv-entry__org">Studio Conca Jannone Maffeis, Bergamo, Italy</p>
             <ul class="cv-entry__details">
@@ -609,8 +515,8 @@
         </div>
 
         <!-- SKILLS -->
-        <div class="cv-section glass glass--accent-left reveal">
-          <h2 class="cv-section__title">Skills</h2>
+        <div class="cv-section glass reveal">
+          <h3 class="cv-section__title">Skills</h3>
 
           <div class="cv-skills">
             <div class="cv-skills__group">
@@ -637,9 +543,9 @@
         </div>
 
         <!-- POSITIONS OF RESPONSIBILITY -->
-        <div class="cv-section glass glass--accent-left reveal">
-          <h2 class="cv-section__title">Positions of Responsibility</h2>
-          <div class="cv-entry">
+        <div class="cv-section glass reveal">
+          <h3 class="cv-section__title">Positions of Responsibility</h3>
+          <div class="cv-entry cv-entry--plain">
             <ul class="cv-entry__details">
               <li>Member of board of directors and board of executives of <a href="https://uniteditaliansocieties.com" target="_blank" rel="noopener noreferrer">United Italian Societies Ltd</a> (June 2021 &ndash; June 2023)</li>
               <li>President of Imperial College Italian Society (June 2021 &ndash; June 2023)</li>
@@ -651,17 +557,21 @@
     </div>
   </section>
 
-  <hr class="section-divider">
 
   <!-- ========== TEACHING ========== -->
   <section class="section" id="teaching">
     <div class="container">
-      <h2 class="section__title reveal">Teaching</h2>
+      <div class="section__head reveal">
+        <div>
+          <h2 class="section__title">Teaching</h2>
+          <p class="section__lede">Teaching assistant, Imperial College London &middot; 2023&ndash;2026</p>
+        </div>
+      </div>
 
-      <div class="teaching-grid">
+      <div class="teaching-list glass reveal">
 
         <!-- COURSE ITEM -->
-        <article class="course-card glass glass--interactive reveal">
+        <article class="course-card">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
             <span class="course-card__year">2025 &amp; 2026</span>
@@ -676,7 +586,7 @@
         <!-- END COURSE ITEM -->
 
         <!-- COURSE ITEM -->
-        <article class="course-card glass glass--interactive reveal">
+        <article class="course-card">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
             <span class="course-card__year">2025 &amp; 2026</span>
@@ -691,7 +601,7 @@
         <!-- END COURSE ITEM -->
 
         <!-- COURSE ITEM -->
-        <article class="course-card glass glass--interactive reveal">
+        <article class="course-card">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
             <span class="course-card__year">2025 &amp; 2026</span>
@@ -699,14 +609,14 @@
           <h3 class="course-card__title">Applied Trading Strategies</h3>
           <p class="course-card__dept">Imperial College Business School</p>
           <p class="course-card__description">
-            Practical course on qualitative and quantitaive trading strategies, covering diverse asset classes,
+            Practical course on qualitative and quantitative trading strategies, covering diverse asset classes,
             backtesting strategies, and portfolio construction.
           </p>
         </article>
         <!-- END COURSE ITEM -->
 
         <!-- COURSE ITEM -->
-        <article class="course-card glass glass--interactive reveal">
+        <article class="course-card">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
             <span class="course-card__year">2023 &amp; 2024</span>
@@ -721,7 +631,7 @@
         <!-- END COURSE ITEM -->
 
         <!-- COURSE ITEM -->
-        <article class="course-card glass glass--interactive reveal">
+        <article class="course-card">
           <div class="course-card__header">
             <span class="course-card__role">Teaching Assistant</span>
             <span class="course-card__year">2024</span>
@@ -742,28 +652,14 @@
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
-    <div class="container">
+    <div class="container footer__row">
+      <p class="footer__text">&copy; 2026 Francesco Piatti &middot; <a href="mailto:francesco.piatti19@imperial.ac.uk">francesco.piatti19@imperial.ac.uk</a></p>
       <div class="footer__socials">
-        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-          </svg>
-        </a>
-        <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>
-        </a>
-        <a href="mailto:francesco.piatti19@imperial.ac.uk" aria-label="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-          </svg>
-        </a>
+        <a href="https://github.com/FrancescoPiatti" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://linkedin.com/in/francesco-piatti" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=kGBj96kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 10l10 7 10-7-10-7z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></a>
+          <a href="mailto:francesco.piatti19@imperial.ac.uk" class="icon-btn" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
       </div>
-      <p class="footer__text">&copy; 2026 Francesco Piatti. All rights reserved.</p>
     </div>
   </footer>
 

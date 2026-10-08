@@ -1,123 +1,61 @@
-/* Download button */
-.cv-download-section {
-  padding-bottom: var(--space-lg);
-}
+/* =====================================================================
+   CV — panes with a left date rail
+   ===================================================================== */
+.cv-content { display: grid; gap: var(--space-md); }
+.cv-section { padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2.5rem); }
 
-.cv-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 2rem;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.cv-download-btn:hover {
-  color: var(--text-primary);
-}
-
-/* CV content */
-.cv-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.cv-section {
-  padding: var(--space-lg);
-  border-radius: var(--card-radius);
-}
-
-/* Group headings (Education, Work Experience, …) sit between the page title
-   "Curriculum Vitae" (--fs-h2) and the entry titles (--fs-h3) so they clearly
-   read as section headers above their entries. */
 .cv-section__title {
-  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-xs);
-  position: relative;
-  border-bottom: 1px solid rgba(20, 157, 221, 0.15);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--hairline);
 }
 
-/* CV entries */
 .cv-entry {
-  margin-bottom: var(--space-md);
+  display: grid;
+  grid-template-columns: 11.5rem 1fr;
+  gap: 0.5rem 2rem;
+  padding: 1.3rem 0;
+  border-top: 1px solid var(--hairline);
 }
-
-.cv-entry:last-child {
-  margin-bottom: 0;
-}
-
-.cv-entry__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-
-.cv-entry__role {
-  font-size: var(--fs-h3);
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
+.cv-entry:first-of-type { border-top: 0; }
+.cv-entry__header { display: contents; }
 
 .cv-entry__date {
-  font-size: var(--fs-small);
-  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.03em;
+  color: var(--text-3);
+  padding-top: 0.3rem;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-
-.cv-entry__org {
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  margin-bottom: var(--space-xs);
-}
-
-.cv-entry__details {
-  padding-left: 1.2rem;
-}
-
-.cv-entry__details li {
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  margin-bottom: 0.3rem;
-  position: relative;
-  list-style: none;
-}
-
+.cv-entry__role { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.012em; }
+.cv-entry__org { grid-column: 2; color: var(--text-2); margin-top: -0.2rem; }
+.cv-entry__details { grid-column: 2; margin-top: 0.35rem; padding-left: 1rem; }
+.cv-entry__details li { position: relative; color: var(--text-2); font-size: var(--fs-small); line-height: 1.6; margin-bottom: 0.3rem; max-width: 68ch; }
 .cv-entry__details li::before {
   content: '';
   position: absolute;
   left: -1rem;
-  top: 0.6em;
+  top: 0.65em;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--gradient-1);
+  background: var(--light-2);
 }
+.cv-entry--plain { grid-template-columns: 1fr; }
+.cv-entry--plain .cv-entry__details { grid-column: 1; margin-top: 0; }
 
 /* Skills */
-.cv-skills {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
+.cv-skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2.5rem; padding-top: 1.1rem; }
 .cv-skills__label {
-  font-size: var(--fs-body);
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-xs);
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.75rem;
 }
-
-.cv-skills__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
+.cv-skills__tags { display: flex; flex-wrap: wrap; gap: 8px; }

@@ -1,86 +1,60 @@
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  line-height: 1.7;
+  background: transparent;                     /* html carries #000; the light field sits between */
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
-/* Animated gradient mesh background */
+/* The one light, continued below the fold: a page-long field the glass panes frost.
+   Positioned on body (absolute, page-anchored) so it paints above the #000 root and
+   beneath every section; the hero covers its own area. */
+body { position: relative; }
 body::before {
   content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background: transparent;
-  pointer-events: none;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%, 70% 60%;
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    background-position: 100% 100%, 0% 100%, 50% 0%, 30% 40%;
-    opacity: 1;
-  }
-}
-
-/* Subtle noise texture overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   z-index: -1;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   pointer-events: none;
+  background:
+    radial-gradient(62vw 34vw at 14% 11%, rgba(20, 157, 221, 0.16), transparent 70%),
+    radial-gradient(70vw 38vw at 88% 36%, rgba(20, 157, 221, 0.13), transparent 70%),
+    radial-gradient(60vw 34vw at 18% 64%, rgba(20, 157, 221, 0.14), transparent 70%),
+    radial-gradient(72vw 40vw at 84% 92%, rgba(20, 157, 221, 0.12), transparent 70%);
 }
 
-/* Typography */
+/* ===== Type ===== */
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text-primary);
-  margin-bottom: var(--space-sm);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
 }
-
-h2 {
-  text-shadow: 0 0 20px rgba(20, 157, 221, 0.15);
-}
-
-h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
 p {
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--space-sm);
+  color: var(--text-2);
+  max-width: 68ch;
+}
+p + p { margin-top: 0.9em; }
+
+a { color: var(--accent); text-underline-offset: 3px; transition: color var(--transition-fast); }
+a:hover { color: var(--light-3); }
+
+strong { color: var(--text-1); font-weight: 500; }
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
 }
 
-a {
-  color: var(--text-accent);
-  transition: color var(--transition-fast);
-}
-
-a:hover {
-  color: #5fb4e8;
-}
-
-/* Layout utilities */
+/* ===== Layout ===== */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -88,73 +62,61 @@ a:hover {
 }
 
 .section {
-  padding: 5rem 0;
+  position: relative;
+  padding: var(--section-pad) 0 0;
   scroll-margin-top: var(--nav-height);
 }
+.section:last-of-type { padding-bottom: var(--section-pad); }
 
-/* Page header banner */
-.page-header {
-  min-height: 22vh;
+/* Section heading: more air above than below, optional right-hand action */
+.section__head {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: calc(var(--nav-height) + var(--space-lg));
-  padding-bottom: var(--space-md);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
 }
-
-.page-header__title {
-  font-size: var(--fs-h1);
-  font-family: var(--font-display);
-  font-weight: 700;
-  margin-bottom: var(--space-xs);
+.section__title {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
-
-.page-header__subtitle {
-  font-size: var(--fs-body);
-  color: var(--text-tertiary);
-}
-
-/* Section divider */
-.section-divider {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(20, 157, 221, 0.2), transparent);
-  margin: 0 auto;
-  max-width: var(--max-width);
-}
-
-/* Footer */
-.footer {
-  padding: var(--space-lg) 0;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: var(--space-2xl);
-}
-
-.footer__text {
+.section__lede {
+  color: var(--text-3);
   font-size: var(--fs-small);
-  color: var(--text-tertiary);
+  margin-top: 0.4rem;
+  max-width: 68ch;
 }
 
-.footer__socials {
+/* Skip link for keyboard users */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+  transform: translateY(-200%);
+  transition: transform var(--transition-base);
+}
+.skip-link:focus-visible { transform: translateY(0); outline-offset: 0; }
+.skip-link:hover { color: #000; }
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--hairline);
+}
+.footer__row {
   display: flex;
-  justify-content: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-sm);
-}
-
-.footer__socials a {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  color: var(--text-tertiary);
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
-
-.footer__socials a:hover {
-  color: var(--text-primary);
-  transform: scale(1.15);
-}
+.footer__text { color: var(--text-3); font-size: var(--fs-small); }
+.footer__socials { display: flex; gap: 8px; }

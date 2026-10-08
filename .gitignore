@@ -1,3 +1,9 @@
 /.claude
 README.md
 .gitignore
+.playwright-cli/
+
+# Impeccable design-tool artifacts (local only; keep off the published site)
+.impeccable/
+PRODUCT.md
+DESIGN.md

@@ -1,43 +1,33 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  background: var(--bg);
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+button { background: none; border: 0; color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; text-wrap: balance; }
+p { overflow-wrap: break-word; text-wrap: pretty; }
 
-input, button, textarea, select {
-  font: inherit;
-}
+/* The browser surfaces nobody draws but everyone sees: theme them from the palette */
+::selection { background: rgba(69, 198, 255, 0.28); color: #fff; }
+:focus-visible { outline: 2px solid var(--light-2); outline-offset: 3px; border-radius: 6px; }
+:focus:not(:focus-visible) { outline: none; }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul, ol {
-  list-style: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  overflow-wrap: break-word;
-}
+html { scrollbar-color: rgba(255, 255, 255, 0.18) transparent; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.16); border-radius: 999px; border: 3px solid #000; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
