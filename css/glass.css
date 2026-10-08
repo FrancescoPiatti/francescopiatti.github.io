@@ -54,12 +54,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .glass--interactive:hover {
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
-    box-shadow: var(--glass-shadow-hover), inset 0 1px 0 var(--glass-edge);
-  }
-  .glass--interactive:hover::after, .glass.is-lit::after { opacity: 1; }
+  .glass.is-lit::after { opacity: 1; }
 }
 
 /* ===== Capsule controls ===== */

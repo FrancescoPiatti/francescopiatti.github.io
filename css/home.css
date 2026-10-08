@@ -50,8 +50,6 @@
 .math-symbol--6  { top: 30%; left: 2%;    font-size: 1.8rem; font-style: italic; animation: symbolFloat 19s ease-in-out 5s infinite alternate; }
 .math-symbol--7  { top: 55%; left: 36%;   font-size: 2rem;   animation: symbolFloat 21s ease-in-out 6s infinite alternate; }
 .math-symbol--8  { top: 14%; left: 44%;   font-size: 2.8rem; animation: symbolFloat 17s ease-in-out 2.5s infinite alternate; }
-.math-symbol--9, .math-symbol--10, .math-symbol--11, .math-symbol--12,
-.math-symbol--13, .math-symbol--14, .math-symbol--15 { display: none; }
 
 .math-formula--1  { top: 15%; left: 3%;   animation: formulaDrift 25s ease-in-out infinite alternate; }
 .math-formula--2  { top: 60%; right: 2%;  font-size: 0.95rem; animation: formulaDrift 22s ease-in-out 3s infinite alternate; }

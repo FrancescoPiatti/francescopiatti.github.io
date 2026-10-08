@@ -70,18 +70,6 @@
   border-top: 1px solid var(--hairline);
 }
 .paper-row:first-child { border-top: 0; }
-.paper-row__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--light-2); }
 .paper-row__title { font-size: 1.15rem; font-weight: 500; letter-spacing: -0.012em; margin-bottom: 0.3rem; }
 .paper-row__with { color: var(--text-2); margin-bottom: 0.75rem; max-width: 68ch; }
 .paper-row__tags { display: flex; flex-wrap: wrap; gap: 8px; }
