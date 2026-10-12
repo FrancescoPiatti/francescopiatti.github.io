@@ -47,7 +47,6 @@
   /* === Nav === */
   --nav-h: 56px;
   --nav-top: 22px;
-  --nav-height: 90px;                 /* scroll-margin for anchored sections */
 
   /* === Motion (Emil Kowalski curves; never built-in ease-in) === */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

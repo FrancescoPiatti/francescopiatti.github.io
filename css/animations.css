@@ -5,6 +5,7 @@
 html.js .reveal { opacity: 0; transform: translateY(18px); filter: blur(6px); }
 html.js .reveal--visible { opacity: 1; transform: none; filter: blur(0); }
 html.js .section__head.reveal { filter: none; transform: translateY(10px); transition-duration: 0.5s; }
+html.js .section__head.reveal--visible { transform: none; }
 
 .reveal-stagger > * { transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
 html.js .reveal-stagger > * { opacity: 0; transform: translateY(12px); }

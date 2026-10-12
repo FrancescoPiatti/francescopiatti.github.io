@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveNav('home');
   const spy = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) setActiveNav(e.target.id); });
-  }, { threshold: 0.15, rootMargin: '-90px 0px -50% 0px' });
+  }, { threshold: 0, rootMargin: '-35% 0px -64% 0px' });
   sections.forEach(s => spy.observe(s));
 
   // ========== Menu (phones: full glass sheet) ==========

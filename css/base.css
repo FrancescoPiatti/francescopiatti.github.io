@@ -63,8 +63,11 @@ strong { color: var(--text-1); font-weight: 500; }
 
 .section {
   position: relative;
-  padding: var(--section-pad) 0 0;
-  scroll-margin-top: var(--nav-height);
+  --section-pad-top: var(--section-pad);
+  padding: var(--section-pad-top) 0 0;
+  /* Nav jumps land the section TITLE just under the floating nav (2.5rem gap),
+     not the section's padded top edge. */
+  scroll-margin-top: calc(var(--nav-top) + var(--nav-h) + 2.5rem - var(--section-pad-top));
 }
 .section:last-of-type { padding-bottom: var(--section-pad); }
 
