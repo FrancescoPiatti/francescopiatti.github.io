@@ -165,7 +165,7 @@
 }
 .hero__row > div:first-child { flex: 1 1 0; min-width: 0; }
 .hero__affil { display: block; max-width: none; }
-.hero__affil-inst { display: inline-block; }
+.hero__affil-inst { display: block; }   /* institution always on its own line */
 .hero__actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; flex: none; }
 .hero__socials { display: flex; gap: 8px; margin-left: 6px; }
 

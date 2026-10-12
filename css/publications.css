@@ -50,7 +50,8 @@
   transition: grid-template-rows 0.45s var(--ease-in-out);
   padding: 0 1rem;
 }
-.abstract-content > * { min-height: 0; overflow: hidden; }
+.abstract-content > * { min-height: 0; overflow: hidden; visibility: hidden; transition: visibility 0s linear 0.45s; }
+.abstract-content--open > * { visibility: visible; transition-delay: 0s; }
 .abstract-content--open { grid-template-rows: 1fr; padding: 1rem; margin-top: 0.75rem; border-left: 1px solid var(--hairline); }
 .abstract-content p { font-size: var(--fs-small); color: var(--text-2); line-height: 1.65; max-width: 68ch; }
 

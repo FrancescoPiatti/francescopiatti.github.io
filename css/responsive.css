@@ -39,3 +39,8 @@
   .cv-skills { grid-template-columns: 1fr; gap: 1.25rem; }
   .footer__row { flex-direction: column; align-items: flex-start; }
 }
+
+/* ========== Small phones (≤ 380px): keep the name on one line ========== */
+@media (max-width: 380px) {
+  .hero__name { font-size: 13.5vw; }
+}
