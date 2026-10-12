@@ -13,23 +13,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0, rootMargin: '-35% 0px -64% 0px' });
   sections.forEach(s => spy.observe(s));
 
-  // ========== Menu (phones: full glass sheet) ==========
+  // ========== Menu (phones: the capsule unfolds into a glass panel) ==========
+  const nav = document.getElementById('navbar');
   const toggle = document.getElementById('nav-toggle');
   const navLinksList = document.getElementById('nav-links');
   const navScrim = document.getElementById('nav-scrim');
-  if (toggle && navLinksList) {
+  if (nav && toggle && navLinksList) {
     toggle.setAttribute('aria-expanded', 'false');
+    let menuOpen = false, openScrollY = 0;
     const setMenuOpen = (open) => {
+      if (open === menuOpen) return;
+      menuOpen = open;
+      openScrollY = window.scrollY;
       navLinksList.classList.toggle('nav__links--open', open);
       toggle.classList.toggle('nav__toggle--active', open);
       document.body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', String(open));
     };
-    toggle.addEventListener('click', () => setMenuOpen(!navLinksList.classList.contains('nav__links--open')));
-    navLinksList.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => setMenuOpen(false)));
-    navLinksList.addEventListener('click', (e) => { if (e.target === navLinksList) setMenuOpen(false); });
+    toggle.addEventListener('click', () => setMenuOpen(!menuOpen));
+    // Any destination in the bar (a link or the FP mark) retracts the panel while the page scrolls there
+    nav.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
     if (navScrim) navScrim.addEventListener('click', () => setMenuOpen(false));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) { setMenuOpen(false); toggle.focus(); }
+    });
+    // Leaving the phone layout (rotation, resize) shuts it, so the desktop bar never inherits an open menu
+    window.matchMedia('(max-width: 767px)').addEventListener('change', (e) => { if (!e.matches) setMenuOpen(false); });
+    // Older iOS can still scroll a locked page; if it does, retract rather than float over moving content
+    window.addEventListener('scroll', () => {
+      if (menuOpen && Math.abs(window.scrollY - openScrollY) > 40) setMenuOpen(false);
+    }, { passive: true });
+    // iOS Safari only paints :active press states when a touch listener is present
+    nav.addEventListener('touchstart', () => {}, { passive: true });
   }
 
   // ========== Scroll reveal (hidden state lives behind html.js) ==========
